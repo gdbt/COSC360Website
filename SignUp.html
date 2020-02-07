@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <header>
+        <title>Sign Up</title>
+    </header>
+    <body>
+        <a href="#"><img src="" alt="LOGO"></a>
+        <table>
+            <tr>
+                <td rowspan="6"> Uploade your picture here !</td>
+                <td><label for="user_name">User Name: </label></td>
+            </tr>
+            <tr>
+                
+                <td><input type="text" id="username"></td>
+            </tr>
+            <tr>
+                
+                <td><label for="password">Password: </label></td>
+            </tr><tr>
+                
+                <td><input type="text" id="password"></td>
+            </tr>
+            <tr>
+                
+                <td><label for="comfirm_password">Comfirm Password: </label></td>
+            </tr>
+            <tr>
+                
+                <td><input type="text" id="comfirm_password"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="button">Uploade Photo</button></td>
+            </tr>
+            <tr>
+                <td><label for="gender">Gender: </label></td>
+                <td>
+                    <select id="gender">
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="TM">Transsexual Male</option>
+                        <option value="TF">Transsexual Female</option>
+                        <option value="CTM">Conjoined Twin - Male</option>
+                        <option value="CTF">Conjoined Twin - Female</option>
+                        <option value="A">Angel</option>
+                        <option value="H">Helicopter</option>
+                        <option value="O">Other/ Prefer not to tell</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><label for="interest">Interest: </label></td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="3">
+                    <textarea id="interest" placeholder="#cat" row="3" col="50">
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><label for="description">About Yourself: </label></td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="3">
+                    <textarea id="description" placeholder="I'm ..." row="3" col="50">
+                    </textarea>
+                </td>
+            </tr>
+        </table>
+        <form>
+            <label for="security_question">Security Question: </label>
+            <select id="security_question">
+                <option value="1">What was the house number and street name you lived in as a child?</option>
+                <option value="2">What were the last four digits of your childhood telephone number?</option>
+                <option value="3">What primary school did you attend?</option>
+                <option value="4">In what town or city was your first full time job?</option>
+                <option value="5">In what town or city did you meet your spouse/partner?</option>
+                <option value="6">What is the middle name of your oldest child?</option>
+            </select>
+        </form>
+    </body>
+</html>    
