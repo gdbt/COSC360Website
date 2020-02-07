@@ -1,0 +1,44 @@
+.logo img{
+    height:100px;
+}
+.logo{
+    width:100px;
+    float:left;
+    clear:right;
+}
+.top{
+    
+    clear:right;
+    clear:top;
+    clear:bottom;
+}
+.top button{
+    width:50px;
+    float:right;
+}
+header{
+    padding-top:2em;
+    padding-left:2em;
+    padding-right:2em;
+    padding-bottom:2em;
+    margin-bottom:2em;
+    background-color:rgb(158, 2, 2);
+    height:110px;
+}
+footer{
+    background-color:rgb(28, 199, 37);
+}
+main{
+    padding:1em;
+    background-color:rgb(168, 134, 22)
+}
+.logins{
+    width:200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.forgotpass{
+    width:50px;
+    margin-left:auto;
+    margin-right:auto;
+}
