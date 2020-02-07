@@ -1,4 +1,51 @@
 <!DOCTYPE html>
 <html>
-    
+    <head>
+        <title>Profile</title>
+        <meta charset="UTF-8">
+        <script>
+            var user = "Hayeon";
+            var postcount = 23;
+            var likes = 236;
+        </script>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <h1>Profile</h1>
+                <img src="images/logo.png">
+                <button type="button"><a href ="main.html">Front Page</a></button>
+            </div>
+        </header>
+        <main>
+            <div class ="rightbar">
+                
+            </div>
+            <div class ="maininfo">
+                <div class ="profilepic">
+                    <img src="images/profilepics/Hayeon.jpg">
+                </div>
+                <div>
+                    <script>
+                        document.write("<h2>@"+user+"</h2>");
+                    </script>
+                    <br>
+                    <p>Nobody dies in this portion of the catacombs, but nobody is saved either. This gives the absence of both punishment and salvation, correlating the area to Limbo.</p>
+                </div>
+                <div class ="interests">
+                    <h3>Interests</h3>
+                    <p>Dogs,cats,trees,car tricks, pokemon go</p>
+                </div>
+                <div class ="stats">
+                    <script>
+                        document.write("<h3>Likes: "+likes+"</h3>");
+                        document.write("<h3>Posts: "+postcount+"</h3>");
+                    </script>
+                </div>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
 </html>
