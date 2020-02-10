@@ -17,13 +17,14 @@ main{
 	height:100px;
 }
 .rightsidebar{
-	width: 150px;
+	padding:1em;
+	width: 200px;
 	height: 500px;
 	float: right;
 	background-color: #aaff80;
 }
 .leftsidebar{
-	width: 150px;
+	width: 200px;
 	height: 500px;
 	margin-right: 5em;
 	float: left;
