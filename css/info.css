@@ -1,28 +1,15 @@
+
 .logo img{
     height:100px;
-    border-radius:50%;
+    border-radius:50px;
 }
 .logo{
     width:100px;
     float:left;
-    clear:right;
 }
 .top{
-    clear:right;
     clear:top;
     clear:bottom;
-}
-.top button{
-    width:50px;
-    float:right;
-}
-header{
-    padding-top:2em;
-    padding-left:2em;
-    padding-right:2em;
-    margin-bottom:1em;
-    background-color:#BFBFBD;
-    height:110px;
 }
 .header-right{
     float:right;
@@ -46,34 +33,39 @@ header{
 .header-right li a:hover{
     background-color:rgb(228, 228, 228);
 }
-footer{
+header {
+    padding-top:2em;
+    padding-left:2em;
+    padding-right:2em;
+    background-color:#BFBFBD;
+    height:110px;
+}
+footer {
     background-color:#BFBFBD;
     margin-top:1em;
 }
-body{
+body {
     background-color:#7A9F5A;
 }
-main{
-    padding:1em;
+#center{
     background-color:#FFFAF0;
+    height:600px;
+    margin-left:10em;
+    padding-right:1em;
+    padding-left:1em;
+    padding-top:1em;
 }
-.logins{
-    width:200px;
-    margin-left:auto;
-    margin-right:auto;
+main{
+    margin-top:1em;
 }
-.mainbutts{
+#quickLink{
+    background-color:#FEFFC8;
     width:150px;
-    margin-left:auto;
-    margin-right:auto;
+    height:600px;
+    float:left;
 }
-button{
-    background:rgb(228, 228, 228);
-    border:none;
-    padding:1px;
-    width:100px;
-}
-button a{
+#quickLink li a{
     color:black;
     text-decoration:none;
+    font-weight:bold;
 }
