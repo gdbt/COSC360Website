@@ -3,6 +3,7 @@
     <title>Login</title>
     <meta charset="UTF-8">
     <link rel ="stylesheet" a href="css/login.css">
+    <script type="text/javascript" src="JS/login.js"></script>
 </html>
 <body>
     <header>
@@ -20,8 +21,8 @@
     </header>
     <main>
             <div class = "logins">
-                <form action ="#" method ="post">
-                    User: <input type="text" name="username" placeholder ="Username"><br>
+                <form name ="login" action ="#" method ="get" onsubmit="return validateForm()">
+                    User: <input type ="text" name="username" placeholder ="Username"><br>
                     Password: <input type="password" name="password" placegolder ="Password"><br>
                     <input type="Submit" value="Login" id="buttL">
                 </form>
