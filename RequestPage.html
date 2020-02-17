@@ -2,24 +2,65 @@
 <html>
     <head>
         <title>Request Page</title>
+        <meta charset="UTF-8">
+        <link rel="Stylesheet" a href ="css/global.css">
+        <link rel="Stylesheet" a href ="css/requestpage.css">
+
     </head>
     <body>
         <header>
-            <a href="#"><img src="" alt="LOGO"></a>
-            <ul class="header-right">
-                <li><a href="HOME">#HOME</a></li>
-                <li><a href="LOGOUT">Log Out</a></li>
-                <li><a href="PROFILE">Profile</a></li>
-            </ul>
+            <div class ="logo">
+                <img src ="images/logo.png">
+            </div>
+            <div class ="top">
+                <h1 align ="center">Request a Channel</h1>
+            </div>
+            <div class="header-right">
+                <ul>
+                    <li><a href="MainLoggedin.html">Home</a></li>
+                    <li><a href="main.html">Front Page</a></li>
+                    <li><a href="logout.html">Log Out</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
         </header>
         <body>
-            <form>
-                <label for="channel">#</label>
-                <input type="text" id="channel" placeholder="Channel Name">
-                <br>
-                <textarea placeholder="Tell Us More ..."></textarea>
-                <button type="button">Submit</button>
-            </form>
+            <main>
+            <div id="quickLink"> 
+                <ul>
+                <li><a href ="about.html">#ABOUT</a></li>
+				<li><a href ="rules.html">#RULE</a></li>
+				<li><a href ="ChannelMain.html?topic=cat">#CAT</a></li>
+				<li><a href ="ChannelMain.html?topic=dog">#DOG</a></li>
+				<li><a href ="ChannelMain.html?topic=fish">#FISH</a></li>
+				<li><a href ="ChannelMain.html?topic=pokemon">#POKEMON</a></li>
+				<li><a href ="ChannelMain.html?topic=tree">#TREE</a></li>
+				<li><a href ="ChannelMain.html?topic=ubco">#UBC</a></li>
+				<li><a href ="ChannelMain.html?topic=sfu">#SFU</a></li>
+				<li><a href ="ChannelMain.html?topic=okcollege">#OKCollege</a></li>
+				<li><a href ="ChannelMain.html?topic=laptop">#LAPTOP</a></li>
+				<li><a href ="ChannelMain.html?topic=social">#SOCIAL</a></li>
+				<li><a href ="ChannelMain.html?topic=phone">#PHONE</a></li>
+				<li><a href ="ChannelMain.html?topic=weed">#WEED</a></li>
+				<li><a href ="ChannelMain.html?topic=games">#GAMES</a></li>
+                </ul>
+            </div>
+            <div id="center">
+                <h3>Please make sure to review the rules prior to making a channel request.</h3>
+                <p>Please also check to make sure a similar channel doesn't already exist.</p>
+                <form method="get" action="redirect.html">
+                    <label for="channel">#</label>
+                    <input type="text" id="channel" placeholder="Channel Name">
+                    <br>
+                    <textarea placeholder="Tell Us More ..." rows ="7" cols ="100"></textarea><br>
+                    <button type="submit" >Submit</button>
+                </form>
+            </div>
+            </main>
+            <footer>
+                <a href = "#">Contact us</a><br>
+                <a href = "RequestPage.html">Request a New Channel</a>
+            </footer>
         </body>
     </body>
 </html>
