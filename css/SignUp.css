@@ -1,0 +1,58 @@
+.heads img{
+	height:100px;
+	border-radius: 70%;
+}
+header{
+	background-color: #BFBFBD;
+}
+footer{
+	background-color: #A6A5A4;
+	clear:both;
+	margin-top: 3em;
+	height: 5em;
+	color: white;
+}
+body{
+	background-color: #7A9F5A;
+}
+table, #longInput{
+    width: 20em;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bolder;
+}
+table #profilePic{
+    width: 20em;  
+    margin: 0.2em auto; 
+}
+#genderRow{
+    text-align: right;
+}
+#security_answer{
+    margin-top: 0.3em;
+}
+textarea{
+    width: 23em;
+    height: 8em;
+}
+select{
+    width: 12.3em;
+}
+#R1C1{
+    text-align: center;
+    border: 1px solid black;
+}
+form{
+    margin: 2em 5em;
+    background-color: #FFFAF0;
+    padding: 2em 0em;
+}
+#submitButt{
+    width: 23.5em;
+    margin-top: 2em;
+}
+#R1C1{
+    max-width: 100%;
+	height: auto;
+	height: auto\9;
+}
