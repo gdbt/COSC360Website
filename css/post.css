@@ -1,0 +1,39 @@
+.profileinfo{
+    padding:0.5em;
+    background-color:rgb(238, 206, 206);
+    border-bottom:dashed 2px black;
+}
+.profileinfo img{
+    height:100px;
+}
+.postinfo{
+    margin-top:1em;
+}
+.mainpost{
+    padding:0.5em;
+    background-color:yellow;
+    border:solid 2px black;
+}
+.commentsection{
+    padding:0.5em;
+    background-color:pink;
+    margin-top:0.5em;
+}
+#center{
+    height:85%;
+}
+#indvcomments{
+    border:solid 1px black;
+    border-collapse:collapse;
+}
+#indvcomments tbody th,td{
+    border-left:solid 1px black;
+    border-right:solid 1px black;
+
+}
+#indvcomments tbody td{
+    border-bottom:2px solid black; 
+}
+#indvcomments tbody th{
+    border-bottom:1px dotted black;
+}
