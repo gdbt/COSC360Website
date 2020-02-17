@@ -62,18 +62,35 @@ main{
     margin-left:auto;
     margin-right:auto;
 }
-.mainbutts{
-    width:150px;
+.logins #buttL{
+    width: 165px;
     margin-left:auto;
     margin-right:auto;
+    margin-top: 0.5em;
 }
-button{
-    background:rgb(228, 228, 228);
-    border:none;
-    padding:1px;
-    width:100px;
+
+.mainbutts{
+    margin-top: 1em;
+    width: 15em;
+    margin-left: auto;
+    margin-right: auto;
 }
-button a{
-    color:black;
-    text-decoration:none;
+.mainbutts a{
+    padding: 0.5em;
 }
+.mainbutts a:link{
+    color: #7A9F5A;
+}
+.mainbutts a:visited{
+    color: #A6a5a4;
+}
+.mainbutts a:hover{
+    background-color: #BFBFBD;
+    color: #FFFAF0;
+}
+main{
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+   
