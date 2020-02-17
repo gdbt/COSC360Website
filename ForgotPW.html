@@ -3,15 +3,16 @@
     <head>
         <title>Forgot your Password</title>
         <meta charset="UTF-8">
-        <link rel="Stylesheet" a href ="css/global.css">
+        <link rel="Stylesheet" href ="css/global.css">
+        <script src="JS/passwordchange.js"></script>
     </head>
     <body>
         <header>
             <div class ="logo">
-                <img src ="images/logo.png">
+                <img src ="images/logo.png" alt="logo">
             </div>
             <div class ="top">
-                <h1 align ="center">Forgot your password?</h1>
+                <h1>Forgot your password?</h1>
             </div>
             <div class="header-right">
                 <ul>
@@ -41,7 +42,7 @@
                 </ul>
             </div>
             <div id="center">
-                <form method="get" action="forgotPWsecurity.html">
+                <form name ="accNameCheck" method="get" action="forgotPWsecurity.html" onsubmit="return valname()">
                     <label for="getUserName">User Name:</label>
                     <br>
                     <input type="text" id="getUserName" placeholder ="Username">

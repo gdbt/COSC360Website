@@ -3,15 +3,16 @@
     <head>
         <title>Changing password</title>
         <meta charset="UTF-8">
-        <link rel="Stylesheet" a href ="css/global.css">
+        <link rel="Stylesheet" href ="css/global.css">
+        <script src="JS/passwordchange.js"></script>
     </head>
     <body>
         <header>
             <div class ="logo">
-                <img src ="images/logo.png">
+                <img src ="images/logo.png" alt="logo">
             </div>
             <div class ="top">
-                <h1 align ="center">Set a new password</h1>
+                <h1>Set a new password</h1>
             </div>
             <div class="header-right">
                 <ul>
@@ -42,7 +43,7 @@
             </div>
             <div id="center">
                 <h3>Please enter a new secure password.</h3>
-                <form method ="get" action ="newpwconf.html">
+                <form name ="newpass" method ="get" action ="newpwconf.html" onsubmit="return newpas()">
                     <label for="newPW">New Password:</label>
                     <br>
                     <input type="password" id="newPW">
