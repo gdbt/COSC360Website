@@ -1,0 +1,36 @@
+#center{
+    background-color:#FFFAF0;
+    height:587px;
+    width:70em;
+    margin-left:10em;
+    padding-right:1em;
+    padding-left:1em;
+    padding-top:1em;
+}
+main{
+    margin-top:1em;
+}
+.profilepic img{
+    height:100px;
+    overflow:auto;
+}
+.interests{
+    background-color:rgb(122, 63, 63);
+    float:left;
+}
+.stats{
+    background-color:rgb(58, 112, 58);
+    float:left;
+    margin-left:1em;
+}
+.achievements{
+    background-color:hotpink;
+    float:right;
+    height:560px;
+}
+#desc{
+    border-bottom-style:dotted;
+    border-bottom-color:black;
+    border-bottom-width:2px;
+    width:50em;
+}

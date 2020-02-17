@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-    <header>
-        <title>Forgor your Password?</title>
-    </header>
+    <head>
+        <title>Forgot your Password</title>
+        <meta charset="UTF-8">
+        <link rel="Stylesheet" href ="css/global.css">
+        <script src="JS/passwordchange.js"></script>
+    </head>
     <body>
-        <img src="" alt="LOGO">
-        <form>
-            <label for="getUserName">User Name:</label>
-            <br>
-            <input type="text" id="getUserName">
-            <br>
-            <button type="button">Go !</button>
-        </form>
+        <header>
+            <div class ="logo">
+                <img src ="images/logo.png" alt="logo">
+            </div>
+            <div class ="top">
+                <h1>Forgot your password?</h1>
+            </div>
+            <div class="header-right">
+                <ul>
+                    <li><a href="MainLoggedin.html">Home</a></li>
+                    <li><a href="main.html">Front Page</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div id="quickLink"> 
+                <ul>
+                <li><a href ="about.html">#ABOUT</a></li>
+				<li><a href ="rules.html">#RULE</a></li>
+				<li><a href ="ChannelMain.html?topic=cat">#CAT</a></li>
+				<li><a href ="ChannelMain.html?topic=dog">#DOG</a></li>
+				<li><a href ="ChannelMain.html?topic=fish">#FISH</a></li>
+				<li><a href ="ChannelMain.html?topic=pokemon">#POKEMON</a></li>
+				<li><a href ="ChannelMain.html?topic=tree">#TREE</a></li>
+				<li><a href ="ChannelMain.html?topic=ubco">#UBC</a></li>
+				<li><a href ="ChannelMain.html?topic=sfu">#SFU</a></li>
+				<li><a href ="ChannelMain.html?topic=okcollege">#OKCollege</a></li>
+				<li><a href ="ChannelMain.html?topic=laptop">#LAPTOP</a></li>
+				<li><a href ="ChannelMain.html?topic=social">#SOCIAL</a></li>
+				<li><a href ="ChannelMain.html?topic=phone">#PHONE</a></li>
+				<li><a href ="ChannelMain.html?topic=weed">#WEED</a></li>
+				<li><a href ="ChannelMain.html?topic=games">#GAMES</a></li>
+                </ul>
+            </div>
+            <div id="center">
+                <form name ="accNameCheck" method="get" action="forgotPWsecurity.html" onsubmit="return valname()">
+                    <label for="getUserName">User Name:</label>
+                    <br>
+                    <input type="text" id="getUserName" placeholder ="Username">
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </main>
+        <footer>
+            <a href = "#">Contact us</a><br>
+        </footer>
     </body>
 </html>
