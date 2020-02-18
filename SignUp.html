@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <header>
+    <head>
         <meta charset ="UTF-8">
         <title>Sign Up</title>
-        <link rel ="stylesheet" a href ="css/SignUp.css">
-        <script type="text/javascript" src="JS/SignUp.js"></script>
-    </header>
+        <link rel ="stylesheet" href ="css/SignUp.css">
+        <script src="JS/SignUp.js"></script>
+    </head>
     <body>
         <header>
             <a href="main.html" class="heads"><img src="images/logo.png" alt="LOGO"></a>
@@ -14,7 +14,7 @@
             <table>
                 <tr>
                     <td rowspan="6"><img id ="R1C1" src="#" alt="Uploade your picture here !"/></td>
-                    <td><label for="user_name">User Name: </label></td>
+                    <td><label for="username">User Name: </label></td>
                 </tr>
                 <tr>
                     
@@ -60,12 +60,12 @@
             <div id="longInput">
                 <label for="interest">Interest: </label>
                 <br>
-                <textarea id="interest" placeholder="#cat" row="3" col="50"></textarea>
+                <textarea id="interest" placeholder="#cat"></textarea>
                 <br>
 
                 <label for="description">About Yourself: </label>
                 <br>
-                <textarea id="description" placeholder="I'm ..." row="3" col="50"></textarea>
+                <textarea id="description" placeholder="I'm ..."></textarea>
                 <br>
 
                 <label for="security_question">Security Question: </label>
@@ -78,7 +78,7 @@
                     <option value="6">What is the middle name of your oldest child?</option>
                 </select>
                 <br>
-                <textarea id="security_answer" row="3" col="100"></textarea>
+                <textarea id="security_answer"></textarea>
                 <input type="submit" value="I am ready!" id="submitButt">
             </div>
             

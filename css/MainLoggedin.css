@@ -1,0 +1,99 @@
+
+
+#quickLink {
+    width: 9em;
+    float: left;
+    margin-left: 5em;
+    background-color: beige;
+}
+
+figure {
+    margin-left: 16em;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+tr td:Last-child{
+   width: min-content;
+}
+
+table {
+    margin-left: 16em;
+    width: 56em;
+}
+
+figure{
+    position: relative;
+}
+
+figure img{
+    width: 56em;
+    height: 13em;
+}
+
+figcaption{
+    color: cornsilk;
+    padding: 0px 10px;
+    position: absolute;
+    top: 1.5em;
+    font-size: 5em;
+}
+
+footer{
+    clear: left;
+    height: 150px;
+    margin-top: 2em;
+}
+
+header a{
+    margin-left: 3px;
+}
+header img{
+    height:100px;
+}
+
+.header-right{
+    overflow: hidden;
+} 
+
+.header-right li {
+    float:right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+
+.header-right li a:hover{
+    background-color: cadetblue;
+    color: black;
+}
+
+.header-right li a:active{
+    background-color: #4CAF50;
+    color: white;
+}
+
+.header-right ul{
+    margin-left: 45em;
+}
+
+header{
+    margin-top: -5em;
+}
+
+table{
+    background-color: #FFFAF0;
+}
+
+header img{
+    height:100px;
+    border-radius:50px;
+}
