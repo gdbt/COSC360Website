@@ -1,0 +1,36 @@
+.logo{
+    border-radius: 70%;
+    margin-top: -1.5em;
+    margin-left: -2.5em;
+}
+.leftsidebar{
+    float: left;
+    width: 10em;
+    padding: 0em 1em;
+    margin-left: 2em;
+}
+.result{
+    margin-left: 16em;
+    margin-right: 2em;
+    background-color: #FFFAF0;
+    padding: 1em 2em;
+}
+h2{
+    border-bottom: black solid 2px;
+}
+table{
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+tr td:Last-child{
+   width: min-content;
+}
