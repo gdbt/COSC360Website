@@ -20,7 +20,7 @@
     margin-top:0.5em;
 }
 #center{
-    height:85%;
+    height:95%;
 }
 #indvcomments{
     border:solid 1px black;
@@ -36,4 +36,13 @@
 }
 #indvcomments tbody th{
     border-bottom:1px dotted black;
+}
+.profileinfo{
+    width:250px;
+    height:21.5em;
+    float:left
+    
+}
+.postinfo{
+    margin-left:270px;
 }
