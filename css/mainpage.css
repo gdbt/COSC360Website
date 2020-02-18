@@ -61,7 +61,7 @@ body{
 	border-radius: 70%;
 }
 
-.searchbar {
+form {
 	position: relative;
 	float: left;
 	margin-top: 20em;
@@ -109,4 +109,57 @@ a{
 	position: relative;
 	margin-left: -5em;;
 	z-index: 5;
+}
+
+.header-right{
+    float:right;
+}
+.header-right ul{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background-color:#BFBFBD;
+}
+.header-right li{
+    display:inline;
+}
+.header-right li a{
+    display:inline-block;
+    text-decoration:none;
+    color:black;
+    padding:2px;
+}
+.header-right li a:hover{
+    background-color:rgb(228, 228, 228);
+}
+.header-right ul{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background-color:#BFBFBD;
+}
+.header-right li{
+    display:inline;
+}
+.header-right li a{
+    display:inline-block;
+    text-decoration:none;
+    color:black;
+    padding:2px;
+}
+.header-right li a:hover{
+    background-color:rgb(228, 228, 228);
+}
+
+.header-right{
+	margin-top: -5em;
+	margin-right: 2em;
+}
+
+#subbutt {
+	position: relative;
+	margin-top: 24em;
+	float: left;
 }
