@@ -1,39 +1,41 @@
 <!DOCTYPE html>
-<html>
-    <title>Login</title>
-    <meta charset="UTF-8">
-    <link rel ="stylesheet" a href="css/login.css">
-    <script type="text/javascript" src="JS/login.js"></script>
-</html>
-<body>
-    <header>
-        <div class ="logo">
-            <img src ="images/logo.png">
-        </div>
-        <div class ="top">
-            <h1 align ="center">Please Login</h1>
-        </div>
-        <div class ="header-right">
-            <ul>
-                <li><a href = "main.html">Front Page</a></li>
-            </ul>
-        </div>
-    </header>
-    <main>
-            <div class = "logins">
-                <form name ="login" action ="#" method ="get" onsubmit="return validateForm()">
-                    User: <input type ="text" name="username" placeholder ="Username"><br>
-                    Password: <input type="password" name="password" placegolder ="Password"><br>
-                    <input type="Submit" value="Login" id="buttL">
-                </form>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <link rel ="stylesheet" href="css/login.css">
+        <script src="JS/login.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class ="logo">
+                <img src ="images/logo.png" alt="Logo">
             </div>
+            <div class ="top">
+                <h1>Please Login</h1>
+            </div>
+            <div class ="header-right">
+                <ul>
+                    <li><a href = "main.html">Front Page</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+                <div class = "logins">
+                    <form name ="login" action ="#" method ="get" onsubmit="return validateForm()">
+                        User: <input type ="text" name="username" placeholder ="Username"><br>
+                        Password: <input type="password" name="password"><br>
+                        <input type="Submit" value="Login" id="buttL">
+                    </form>
+                </div>
 
-            <div class ="mainbutts">
-                <a href ="ForgotPW.html">Forgot Password</a>
-                <a href ="SignUp.html">Sign Up</a>
-            </div>
-    </main>
-    <footer>
-        <a href ="#">Contact Us</a>
-    </footer>
-</body>
+                <div class ="mainbutts">
+                    <a href ="ForgotPW.html">Forgot Password</a>
+                    <a href ="SignUp.html">Sign Up</a>
+                </div>
+        </main>
+        <footer>
+            <a href ="#">Contact Us</a>
+        </footer>
+    </body>
+</html>
