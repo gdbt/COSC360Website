@@ -1,6 +1,4 @@
-header{
-    background-color: aquamarine;
-}
+
 
 #quickLink {
     width: 9em;
@@ -49,7 +47,6 @@ figcaption{
 }
 
 footer{
-    background-color: aquamarine;
     clear: left;
     height: 150px;
     margin-top: 2em;
@@ -63,7 +60,6 @@ header img{
 }
 
 .header-right{
-    background-color: aquamarine;
     overflow: hidden;
 } 
 
@@ -87,4 +83,12 @@ header img{
 
 .header-right ul{
     margin-left: 45em;
+}
+
+header{
+    margin-top: -5em;
+}
+
+table{
+    background-color: #FFFAF0;
 }
