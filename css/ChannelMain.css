@@ -92,3 +92,8 @@ header{
 table{
     background-color: #FFFAF0;
 }
+
+header img{
+    height:100px;
+    border-radius:50px;
+}
