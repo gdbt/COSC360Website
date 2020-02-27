@@ -10,7 +10,7 @@
         <header>
             <a href="main.html" class="heads"><img src="images/logo.png" alt="LOGO"></a>
         </header>
-        <form name = "SignUp" method="GET" action="#" onsubmit="return validateForm()">
+        <form name = "SignUp" method="GET" action="SignUp.php" onsubmit="return validateForm()">
             <table>
                 <tr>
                     <td rowspan="6"><img id ="R1C1" src="#" alt="Uploade your picture here !"/></td>
@@ -18,14 +18,14 @@
                 </tr>
                 <tr>
                     
-                    <td><input type="text" id="username"></td>
+                    <td><input type="text" name="username"></td>
                 </tr>
                 <tr>
                     
                     <td><label for="password">Password: </label></td>
                 </tr><tr>
                     
-                    <td><input type="text" id="password"></td>
+                    <td><input type="text" name="password"></td>
                 </tr>
                 <tr>
                     
@@ -41,7 +41,7 @@
                 <tr>
                     <td id="genderRow"><label for="gender">Gender: </label></td>
                     <td>
-                        <select id="gender">
+                        <select name="gender">
                             <option value="Null">Choose one</option>
                             <option value="M">Male</option>
                             <option value="F">Female</option>
@@ -60,16 +60,16 @@
             <div id="longInput">
                 <label for="interest">Interest: </label>
                 <br>
-                <textarea id="interest" placeholder="#cat"></textarea>
+                <textarea name="interest" placeholder="#cat"></textarea>
                 <br>
 
                 <label for="description">About Yourself: </label>
                 <br>
-                <textarea id="description" placeholder="I'm ..."></textarea>
+                <textarea name="description" placeholder="I'm ..."></textarea>
                 <br>
 
                 <label for="security_question">Security Question: </label>
-                <select id="security_question">
+                <select name="security_question">
                     <option value="1">What was the house number and street name you lived in as a child?</option>
                     <option value="2">What were the last four digits of your childhood telephone number?</option>
                     <option value="3">What primary school did you attend?</option>
@@ -78,7 +78,7 @@
                     <option value="6">What is the middle name of your oldest child?</option>
                 </select>
                 <br>
-                <textarea id="security_answer"></textarea>
+                <textarea name="security_answer"></textarea>
                 <input type="submit" value="I am ready!" id="submitButt">
             </div>
             
