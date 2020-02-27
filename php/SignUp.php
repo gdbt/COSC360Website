@@ -8,7 +8,7 @@
     <body>
     <header>
         <div class ="logo">
-            <img src ="images/logo.png" alt="logo">
+            <img src ="../images/logo.png" alt="logo">
         </div>
         <div class ="top">
             <h1>Successfully sent! Redirect in progress</h1>
