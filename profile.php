@@ -1,3 +1,19 @@
+<?php 
+	include("php/session.php"); 
+	require_once('php/connection.php');
+                try{
+                        global $pdo;
+                        $username = $_SESSION['login_user'];
+                        $sql = "SELECT Username,Gender,accountDesc,Interests,Likes FROM Account WHERE Username = :username";
+                        $stmt = $pdo->prepare($sql);
+			$stmt->bindParam(':username',$username);
+                        $stmt->execute();
+                        $results = $stmt->fetch();
+			$accountdesc = $results['accountDesc'];
+		}catch(PDOException $e){
+                        echo $e->getMessage();
+                }
+?>
 <!DOCTYPE html>
 <html lang ="en">
     <head>
@@ -22,7 +38,7 @@
             <div class="header-right">
                 <ul>
                     <li><a href="MainLoggedin.html">Home</a></li>
-                    <li><a href = "main.html">Front Page</a></li>
+                    <li><a href ="main.html">Front Page</a></li>
                     <li><a href="logout.html">Log Out</a></li>
                 </ul>
             </div>
@@ -48,38 +64,24 @@
                 </ul>
             </div>
             <div id="center">
-                <div class="achievements">
-                    <table>
-                        <caption>Achievements</caption>
+		<div class="achievements">
+                 <table>
+                       <caption>Achievements</caption>
                         <tbody>
-                            <tr>
-                                <?php
-                                require_once('connection.php');
-                                try{
-                                    global $pdo;
-                                    $stmt =  $pdo -> prepare("SELECT * FROM Account WHERE Username = ?");
-                                    $stmt->execte([$Username]);
-                                    $user = $stmt -> fetch();
-
-                                }catch(PDOException $e){
-                                    echo $e->getMessage();
-                                }
-                                ?>
-                                <td><img src="images/achievements/accountmade.png" height ="50" alt ="achievement"></td>
+                            <tr><td><img src="images/achievements/accountmade.png" height ="50" alt ="achievement"></td>
                                 <td><img src="images/achievements/firstcomment.png" height ="50" alt ="achievement"></td>
-                                <td><img src="images/achievements/firstpost.png" height="50" alt ="achievement"></td>
-                            </tr>
-                        </tbody>
+                                <td><img src="images/achievements/firstpost.png" height="50" alt ="achievement"></td></tr>
+                       </tbody>
                     </table>
                 </div>
                 <div class ="profilepic">
                     <img src="images/profilepics/Hayeon.jpg" alt="profile Picture">
                 </div>
                 <div id=desc>
-                    <script>
-                        document.write("<h2><u>@"+user+"</u></h2>");
-                    </script>
-                    <p>Nobody dies in this portion of the catacombs, but nobody is saved either. This gives the absence of both punishment and salvation, correlating the area to Limbo.</p>
+                    <?php
+			echo "<h2><u>$username</u></h2>";
+			echo "<p>$accountdesc</p"
+			?>
                 </div>
                 <br>
                 <div class ="interests">
@@ -87,11 +89,11 @@
                     <p>Dogs,cats,trees,car tricks, pokemon go</p>
                 </div>
                 <div class ="stats">
-                    <script>
+                   <script>
                         document.write("<h3>Likes: "+likes+"</h3>");
                         document.write("<h3>Posts: "+postcount+"</h3>");
-                    </script>
-                </div>
+                    </script>';
+                </div>';
             </div>
         </main>
         <footer>
