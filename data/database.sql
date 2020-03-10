@@ -45,11 +45,11 @@ CREATE TABLE Post(
 	postTitle VARCHAR(60),
 	postDescription VARCHAR(1000),
 	postDate DATE,
-	Username VARCHAR(20),
+	UserId int,
 	channelId int,
 	PRIMARY KEY (postId),
 	FOREIGN KEY (channelId) REFERENCES Channel(channelId),
-	FOREIGN KEY (Username) REFERENCES Account(Username) ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY (UserId) REFERENCES Account(Id) ON DELETE CASCADE ON UPDATE CASCADE
 	
 );
 
