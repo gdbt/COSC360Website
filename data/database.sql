@@ -57,11 +57,11 @@ CREATE TABLE Comment (
 	commentId int NOT NULL AUTO_INCREMENT,
 	comment VARCHAR(500),
 	commentDate DATE,
-	Username VARCHAR(20),
+	UserId int,
 	postId int,
 	PRIMARY KEY (commentId),
 	FOREIGN KEY (postId) REFERENCES Post(postId),
-	FOREIGN KEY (Username) REFERENCES Account(Username) ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY (UserId) REFERENCES Account(Id) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
 
