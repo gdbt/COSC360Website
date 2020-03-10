@@ -3,12 +3,12 @@
     <head>
         <title>Account Creation</title>
         <meta charset="UTF-8">
-        <link rel="Stylesheet" href ="css/global.css">
+        <link rel="Stylesheet" href ="../css/global.css">
     </head>
     <body>
     <header>
         <div class ="logo">
-            <img src ="images/logo.png" alt="logo">
+            <img src ="../images/logo.png" alt="logo">
         </div>
         <div class ="top">
             <h1>Successfully sent! Redirect in progress</h1>
@@ -48,7 +48,7 @@ $pdo = null;
 <script>
                 window.setTimeout(redir,1500);
                 function redir(){
-                    window.location.href ="main.html";
+                    window.location.href ="../main.html";
                 }
             </script>
         </main>
