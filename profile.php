@@ -4,12 +4,23 @@
                 try{
                         global $pdo;
                         $username = $_SESSION['login_user'];
-                        $sql = "SELECT Username,Gender,accountDesc,Interests,Likes FROM Account WHERE Username = :username";
+                        $sql = "SELECT Id,Username,Gender,accountDesc,Interests,Likes FROM Account WHERE Username = :username";
                         $stmt = $pdo->prepare($sql);
 			$stmt->bindParam(':username',$username);
                         $stmt->execute();
                         $results = $stmt->fetch();
 			$accountdesc = $results['accountDesc'];
+			$interest = $results['Interests'];
+			$likes = $results['Likes'];
+			$gender = $results['Gender'];
+			$id = $results['Id'];
+			echo $id;
+
+			$achsql = "SELECT AchievementName FROM Achievements,Account WHERE Achievements.accountId = Account.Id and Account.Id = :id;";
+			$achstmt = $pdo->prepare($achsql);
+			$achstmt->bindParam(':id',$id);
+			$achstmt->execute();
+
 		}catch(PDOException $e){
                         echo $e->getMessage();
                 }
@@ -21,11 +32,6 @@
         <meta charset="UTF-8">
         <link rel="Stylesheet" href ="css/global.css">
         <link rel="Stylesheet" href ="css/profile.css">
-        <script>
-            var user = "Hayeon";
-            var postcount = 23;
-            var likes = 236;
-        </script>
     </head>
     <body>
         <header>
@@ -37,9 +43,9 @@
             </div>
             <div class="header-right">
                 <ul>
-                    <li><a href="MainLoggedin.html">Home</a></li>
-                    <li><a href ="main.html">Front Page</a></li>
-                    <li><a href="logout.html">Log Out</a></li>
+                    <li><a href="MainLoggedin.php">Home</a></li>
+                    <li><a href ="main.php">Front Page</a></li>
+                    <li><a href="logout.php">Log Out</a></li>
                 </ul>
             </div>
         </header>
@@ -68,9 +74,20 @@
                  <table>
                        <caption>Achievements</caption>
                         <tbody>
-                            <tr><td><img src="images/achievements/accountmade.png" height ="50" alt ="achievement"></td>
-                                <td><img src="images/achievements/firstcomment.png" height ="50" alt ="achievement"></td>
-                                <td><img src="images/achievements/firstpost.png" height="50" alt ="achievement"></td></tr>
+				<?php
+					echo "<tr>";
+					$rowy = 0;
+					while($row = $achstmt->fetch()){
+						$achname = $row['AchievementName'];
+						if($rowy == 3){
+							echo "</tr><tr>";
+							$rowy = 0;
+						}
+						echo "<td><img src='images/achievements/$achname' height='50' alt ='achievement'></td>";
+						$rowy = $rowy + 1;
+					}
+					echo "</tr>";
+				?>
                        </tbody>
                     </table>
                 </div>
@@ -80,19 +97,21 @@
                 <div id=desc>
                     <?php
 			echo "<h2><u>$username</u></h2>";
-			echo "<p>$accountdesc</p"
+			echo "<p>$accountdesc</p";
 			?>
                 </div>
                 <br>
                 <div class ="interests">
                     <h3>Interests</h3>
-                    <p>Dogs,cats,trees,car tricks, pokemon go</p>
+			<?php
+                    		echo "<p>$interest</p>";
+			?>
                 </div>
                 <div class ="stats">
-                   <script>
-                        document.write("<h3>Likes: "+likes+"</h3>");
-                        document.write("<h3>Posts: "+postcount+"</h3>");
-                    </script>';
+                   <?php
+				echo "<h3>Likes: $likes</h3>";
+				echo "<h3>Posts: 0</h3>";
+			?>
                 </div>';
             </div>
         </main>
