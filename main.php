@@ -76,7 +76,7 @@
 				</figure>
 			</div>
 			<div class ="searchbar">
-				<form id ="Search" method ="GET"> 
+				<form id ="Search" action = "SerchedPage.php"  method ="GET"> 
 					<input type ="text" id ="searcher" placeholder ="Search something">
 					
 				</form>	
