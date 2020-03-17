@@ -1,9 +1,7 @@
 <?php
 	include("php/session.php");
-	$username = $_SESSION['login_user'];
-	echo $username;
+	
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +17,19 @@
 		</figure>
 		<div class = "header-right">
 			<ul>
-				<li><a href ="profile.html">Profile</a></li>
-				<li><a href ="login.html">Login</a></li>
-				<li><a href ="SignUp.html">Sign Up</a></li>
-				<li><a href ="#">Log out</a></li>
+				<?php 
+					$username = $_SESSION['login_user'];
+					if ( $username == "" || $username == NULL ){
+						echo "<li> Hello $username<li>";
+						echo "<li><a href ='profile.html'>Profile</a></li>";
+						echo "<li><a href ='logout.php'>Log out</a></li>";
+					}
+					else {
+						echo "<li><a href ='login.html'>Login</a></li>";
+						echo "<li><a href ='SignUp.html'>Sign Up</a></li>";
+					}
+					
+				?>
 			</ul>
 		</div>
 	</header>
