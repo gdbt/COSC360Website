@@ -1,8 +1,15 @@
 <?php
-	include("php/session.php");
-    $item = $_GET["searcher"];
+    include("php/session.php");
+    require_once("php/connection.php");
+    $item = $_GET["searchr"];
+    echo $item;
     if ($item == "" || $item == NULL)
         $item = "Empty";
+    try{
+        global $pdo;
+    }catch(PDOException $e){
+    }
+    $pdo = null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +28,7 @@
                 <ul>
                     <?php 
                         $username = $_SESSION['login_user'];
-                        if ( $username == "" || $username == NULL ){
+                        if ( $username != "" || $username != NULL ){
                             echo "<li> Hello $username<li>";
                             echo "<li><a href ='profile.html'>Profile</a></li>";
                             echo "<li><a href ='logout.php'>Log out</a></li>";
@@ -74,6 +81,13 @@
                         <th>Like</th>
                     </tr>
                     <?php
+                         $stmt = $pdo->query("SELECT * FROM Channel Where channelName Like '%$item%'");
+                         while ($row = $stmt->fetch()) {
+                            echo "<tr>";
+                                echo "<td colspan='3'><a href='post.html'>#".$row['channelName']."</a></td>";
+                                echo "<td><button type='button'>Like</button>".$row['likeCount']."</td>";
+                            echo "</tr>";
+                         }
                          $stmt = $pdo->query("SELECT * FROM Post Where postTitle Like '%$item%'");
                          while ($row = $stmt->fetch()) {
                             echo "<tr>";
@@ -82,6 +96,11 @@
                             echo "</tr>";
                          }
                     ?>
+                    <tr>
+                         <th></th>
+                         <th>The End of the Result...</th>
+                         <th></th>
+                    </tr>     
                 </table>
             </div>
         </main>
