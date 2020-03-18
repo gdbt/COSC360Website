@@ -19,7 +19,7 @@
 			<ul>
 				<?php 
 					$username = $_SESSION['login_user'];
-					if ( $username == "" || $username == NULL ){
+					if ( $username != "" || $username != NULL ){
 						echo "<li> Hello $username<li>";
 						echo "<li><a href ='profile.html'>Profile</a></li>";
 						echo "<li><a href ='logout.php'>Log out</a></li>";
@@ -77,10 +77,9 @@
 			</div>
 			<div class ="searchbar">
 				<form id ="Search" action = "SerchedPage.php"  method ="GET"> 
-					<input type ="text" id ="searcher" placeholder ="Search something">
-					
+					<input type ="text" id ="searcher" name = "searchr" placeholder ="Search something">
+					<input type="submit" value="Submit" onclick="myFunction()">
 				</form>	
-					<button id="subbutt" onclick="myFunction()">Search</button>
 				
 			</div>
 		</div>
