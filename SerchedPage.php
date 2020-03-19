@@ -1,15 +1,6 @@
 <?php
     include("php/session.php");
-    require_once("php/connection.php");
-    $item = $_GET["searchr"];
-    echo $item;
-    if ($item == "" || $item == NULL)
-        $item = "Empty";
-    try{
-        global $pdo;
-    }catch(PDOException $e){
-    }
-    $pdo = null;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,9 +20,10 @@
                     <?php 
                         $username = $_SESSION['login_user'];
                         if ( $username != "" || $username != NULL ){
-                            echo "<li> Hello $username<li>";
+                            
                             echo "<li><a href ='profile.html'>Profile</a></li>";
                             echo "<li><a href ='logout.php'>Log out</a></li>";
+                            echo "<li> Hello $username<li>";
                         }
                         else {
                             echo "<li><a href ='login.html'>Login</a></li>";
@@ -65,7 +57,7 @@
             </div>
             
             <div class="result">
-                <h2>Result of <?php echo $item; ?></h2>
+                <h2>Result of <?php $item = $_GET["searchr"]; echo $item; ?></h2>
                 <table>
                     <tr>
                         <th>Sort</th>
@@ -81,24 +73,36 @@
                         <th>Like</th>
                     </tr>
                     <?php
-                         $stmt = $pdo->query("SELECT * FROM Channel Where channelName Like '%$item%'");
-                         while ($row = $stmt->fetch()) {
-                            echo "<tr>";
-                                echo "<td colspan='3'><a href='post.html'>#".$row['channelName']."</a></td>";
-                                echo "<td><button type='button'>Like</button>".$row['likeCount']."</td>";
-                            echo "</tr>";
-                         }
-                         $stmt = $pdo->query("SELECT * FROM Post Where postTitle Like '%$item%'");
-                         while ($row = $stmt->fetch()) {
-                            echo "<tr>";
-                                echo "<td colspan='3'><a href='post.html'>".$row['postTitle']."</a></td>";
-                                echo "<td><button type='button'>Like</button>".$row['postLikes']."</td>";
-                            echo "</tr>";
-                         }
+                        
+                        require_once("php/connection.php");
+                        global $pdo;
+
+                        $item = $_GET["searchr"];
+                        if ($item == "" || $item == NULL)
+                            $item = "Empty";
+                        try{
+                            $stmt = $pdo->query("SELECT * FROM Channel Where channelName Like '%$item%'");
+                            while ($row = $stmt->fetch()) {
+                               echo "<tr>";
+                                   echo "<td colspan='3'><a href='post.html'>#".$row['channelName']."</a></td>";
+                                   echo "<td><button type='button'>Like</button>".$row['likeCount']."</td>";
+                               echo "</tr>";
+                            }
+                            $stmt = $pdo->query("SELECT * FROM Post Where postTitle Like '%$item%' OR postDescription Like '%$item%' ");
+                            while ($row = $stmt->fetch()) {
+                               echo "<tr>";
+                                   echo "<td colspan='3'><a href='post.html'>".$row['postTitle']."</a></td>";
+                                   echo "<td><button type='button'>Like</button>".$row['postLikes']."</td>";
+                               echo "</tr>";
+                            }
+                        }catch(PDOException $e){
+                        }
+                        $pdo = null;
+                        
                     ?>
                     <tr>
                          <th></th>
-                         <th>The End of the Result...</th>
+                         <th colspan="2" >The End of the Result...</th>
                          <th></th>
                     </tr>     
                 </table>
