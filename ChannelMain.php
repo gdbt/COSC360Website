@@ -18,9 +18,9 @@
         <header>
             <a href="main.html"><img src="images/logo.png" alt="LOGO"></a>
             <ul class="header-right">
-                <li><a href="MainLoggedin.html">#HOME</a></li>
-                <li><a href="logout.html">Log Out</a></li>
-                <li><a href="profile.html">Profile</a></li>
+                <li><a href="MainLoggedin.php">#HOME</a></li>
+                <li><a href="logout.php">Log Out</a></li>
+                <li><a href="profile.php">Profile</a></li>
             </ul>
         </header>
         <main>
@@ -28,19 +28,19 @@
                 <ul>
                 <li><a href ="about.html">#ABOUT</a></li>
 				<li><a href ="rules.html">#RULE</a></li>
-				<li><a href ="ChannelMain.html?topic=cat">#CAT</a></li>
-				<li><a href ="ChannelMain.html?topic=dog">#DOG</a></li>
-				<li><a href ="ChannelMain.html?topic=fish">#FISH</a></li>
-				<li><a href ="ChannelMain.html?topic=pokemon">#POKEMON</a></li>
-				<li><a href ="ChannelMain.html?topic=tree">#TREE</a></li>
-				<li><a href ="ChannelMain.html?topic=ubco">#UBC</a></li>
-				<li><a href ="ChannelMain.html?topic=sfu">#SFU</a></li>
-				<li><a href ="ChannelMain.html?topic=okcollege">#OKCollege</a></li>
-				<li><a href ="ChannelMain.html?topic=laptop">#LAPTOP</a></li>
-				<li><a href ="ChannelMain.html?topic=social">#SOCIAL</a></li>
-				<li><a href ="ChannelMain.html?topic=phone">#PHONE</a></li>
-				<li><a href ="ChannelMain.html?topic=weed">#WEED</a></li>
-				<li><a href ="ChannelMain.html?topic=games">#GAMES</a></li>
+				<li><a href ="ChannelMain.php?topic=cat">#CAT</a></li>
+				<li><a href ="ChannelMain.php?topic=dog">#DOG</a></li>
+				<li><a href ="ChannelMain.php?topic=fish">#FISH</a></li>
+				<li><a href ="ChannelMain.php?topic=pokemon">#POKEMON</a></li>
+				<li><a href ="ChannelMain.php?topic=tree">#TREE</a></li>
+				<li><a href ="ChannelMain.php?topic=ubco">#UBC</a></li>
+				<li><a href ="ChannelMain.php?topic=sfu">#SFU</a></li>
+				<li><a href ="ChannelMain.php?topic=okcollege">#OKCollege</a></li>
+				<li><a href ="ChannelMain.php?topic=laptop">#LAPTOP</a></li>
+				<li><a href ="ChannelMain.php?topic=social">#SOCIAL</a></li>
+				<li><a href ="ChannelMain.php?topic=phone">#PHONE</a></li>
+				<li><a href ="ChannelMain.php?topic=weed">#WEED</a></li>
+				<li><a href ="ChannelMain.php?topic=games">#GAMES</a></li>
                 </ul>
             </div>
 
@@ -53,7 +53,7 @@
                 </figure>
                 <table>
                     <tr>
-                        <th>Sort</th>
+                        <th>Title</th>
                         <th>
                             <select>
                                 <option value="">Hot</option>
@@ -62,75 +62,38 @@
                                 <option value="">Most Comments</option>
                             </select>
                         </th>
-                        <th></th>
                         <th>Like</th>
                     </tr>
-                    <tr>
-                    <?php
-                    require_once('connection.php');
-                    try{
-                    global $pdo;
-                    $topic=$_GET['topic'];
-                    $sql="SELECT "; //add sql 
-                    $data = $pdo -> query ( $sql) -> fetchAll();
-                    foreach ($data as $row){
-                        echo "<td colspan='3'><a href='post.html'>".$row['title']."</a></td>"; // post address
-                        echo "<td><button type='button'>Like</button>".$row['like']."</td>";
-                    }
-                    }catch(PDOException $e){
-                        echo $e->getMessage();
-                    }
-                    ?>
-                    </tr>
-                    <!-- <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr> -->
+                <?php
+        	require_once("php/connection.php");
+        	global $pdo;
+        	try{
+        	        $topic = $_GET['topic'];
+        	        echo $topic;
+        	        $sql = "SELECT channelId FROM Channel WHERE channelName = :channel";
+        	        $stmt = $pdo->prepare($sql);
+        	        $stmt->bindParam(':channel',$topic);
+        	        $stmt->execute();
+        	        $results = $stmt->fetch();
+        	        $channelid = $results['channelId'];
+        	        $lsql = "SELECT postLikes, postTitle FROM Post WHERE channelId = :channels";
+        	        $lstmt = $pdo->prepare($lsql);
+        	        $lstmt->bindParam(':channels',$channelid);
+        	        $lstmt->execute();
+        	        while($row = $lstmt->fetch()){
+        	              $pl = $row['postLikes'];
+        	              $pt = $row['postTitle'];
+        	              echo "<tr><td><a href = 'post.html?title=$pt'>$pt</a></td><td></td><td>$pl</td></tr>";
+        	        }
+        	}catch(PDOException $e){
+        	}
+        	$pdo = null;
+		?>
                 </table>
+		<form name = makepost action ="newpost.php" method="post">
+                        <?php echo "<input type='hidden' name ='cid' value = $channelid>"; ?>
+                        <input type ="Submit" value ="Create Post!">
+                </form>
             </div>
         </main>
 

@@ -15,9 +15,15 @@ function newpas(){
 }
 function valsecurity(){
     var secanswer = document.forms["secanswer"]["getsecanswer"].value;
-    var secactual = "bob";
-    if(secanswer != secactual){
-        alert("Answer is incorrect, Please try again.")
+    var newpass = document.forms["secanswer"]["getpass"].value;
+    var renewpass = document.forms["secanswer"]["getpassconf"].value;
+
+    if(secanswer == "" || newpass == "" || renewpass == ""){
+        alert("Please input all values");
+        return false;
+    }
+    else if(newpass != renewpass){
+        alert("Please make sure both passwords match.")
         return false;
     }
     else{
