@@ -8,6 +8,12 @@
         <script>
             var user ="Hayeon";
         </script>
+        <script>
+            const qString = window.location.search;
+            console.log(qString);
+            const urlParams = new URLSearchParams(qString);
+            const postid = urlParams.get('postid'); 
+        </script>
     </head>
     <body>
         <header>
@@ -84,6 +90,29 @@
                                     <tr><td>NONE!</td></tr>
                                     <tr><th>xx_haloMaster_xx</th></tr>
                                     <tr><td>Get some help...</td></tr>
+                                    <?php 
+                                        require_once("php/connection.php");
+                                        global $pdo;
+                                        try{
+                                            $query = $_SERVER['QUERY_STRING'];
+                                            list($varN, $postid) = split("=", $query);
+                                            $stmt = $pdo->query("SELECT UserId, comment FROM Comment Where postId = $postid");
+                                            while ($row = $stmt->fetch()) {
+                                                $stmt2 = $pdo -> query( "Select Username From Account Where id = :id");
+                                                $stmt2->bindParam(':comment',$row['UserId']);
+                                                $row2 = $stmt2->fetch();
+                                                echo "<tr><th>$row2[Username]</th></tr>";
+                                                echo "<tr><td>$row[comment]</td></tr>";
+                                            }
+                                        }catch(PDOException $e){
+                                        }
+                                        $pdo = null; 
+                                    ?>
+                                    <form action="addcommont.php" method ="GET">
+                                    <tr><th>Write Your Commont</th></tr>
+                                    <tr><td><textarea name = "nwcommomt"></textarea><input type="hidden" name="postId" value="postid"></td></tr>
+                                    <tr><td><input type="submit" value="Submit" onclick="myFunction()"></td></tr>
+</form>
                             </tbody>
                         </table>
                         
