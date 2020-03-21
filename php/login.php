@@ -20,8 +20,8 @@ require_once('connection.php');
 session_start();
 try{
         global $pdo;
-	$username = $_GET['username'];
-	$password = $_GET['password'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 
         $sql = "SELECT password FROM Account WHERE Username = :username";
         $stmt = $pdo->prepare($sql);
