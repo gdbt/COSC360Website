@@ -8,11 +8,20 @@
         <script>
             var user ="Hayeon";
         </script>
+        <!-- <?php
+            require_once("php/connection.php");             
+            global $pdo;
+            try{
+
+            }catch(PDOException $e){
+            }
+            $pdo = null;
+        ?> -->
         <script>
             const qString = window.location.search;
             console.log(qString);
             const urlParams = new URLSearchParams(qString);
-            const postid = urlParams.get('postid'); 
+            const postid = urlParams.get('postId'); 
         </script>
     </head>
     <body>
@@ -84,34 +93,48 @@
                             <thead>
                             </thead>
                             <tbody>                            
-                                    <tr><th>xx_haloMaster_xx</th></tr>
-                                    <tr><td>Bro what kind of drugs are you on?</td></tr>
-                                    <tr><th>Hayeon</th></tr>
-                                    <tr><td>NONE!</td></tr>
-                                    <tr><th>xx_haloMaster_xx</th></tr>
-                                    <tr><td>Get some help...</td></tr>
-                                    <?php 
+                                    
+                                    <?php
+                                        
                                         require_once("php/connection.php");
                                         global $pdo;
                                         try{
                                             $query = $_SERVER['QUERY_STRING'];
-                                            list($varN, $postid) = split("=", $query);
-                                            $stmt = $pdo->query("SELECT UserId, comment FROM Comment Where postId = $postid");
+                                            echo $query;
+                                            echo "<br>";
+                                            $pid = explode("=", $query);
+                                            echo $pid[1];
+                                            $postId = (int)$pid[1];
+                                            echo "<br>";
+                                            echo $postId;
+                                            $stmt = $pdo->query("SELECT UserId, comment FROM Comment Where postid = $postId");
                                             while ($row = $stmt->fetch()) {
-                                                $stmt2 = $pdo -> query( "Select Username From Account Where id = :id");
-                                                $stmt2->bindParam(':comment',$row['UserId']);
+                                                $userId = $row["UserId"];
+                                                $comment = $row["comment"];
+                                                echo "<br>"."user id :".$row['UserId'];
+                                                $stmt2 = $pdo->query("SELECT Username FROM Account Where id = $userId");
                                                 $row2 = $stmt2->fetch();
-                                                echo "<tr><th>$row2[Username]</th></tr>";
-                                                echo "<tr><td>$row[comment]</td></tr>";
+                                                $username = $row2['Username'];
+                                                echo "<br>"."user name :".$username;
+                                                echo "<tr><th>$username</th></tr>";
+                                                echo "<tr><td>$comment</td></tr>";
                                             }
                                         }catch(PDOException $e){
                                         }
                                         $pdo = null; 
+                                        
                                     ?>
-                                    <form action="addcommont.php" method ="GET">
+                                    
+                                    <form name = addcomment action="php/addcomment.php" method ="get">
                                     <tr><th>Write Your Commont</th></tr>
-                                    <tr><td><textarea name = "nwcommomt"></textarea><input type="hidden" name="postId" value="postid"></td></tr>
-                                    <tr><td><input type="submit" value="Submit" onclick="myFunction()"></td></tr>
+                                    <tr><td><textarea name = "nwcommomt"></textarea>
+                                        
+                                        <?php
+                                            echo "<input type='hidden' name='postId' value = ".$postId.">";
+                                        ?>                              
+                                        
+                                    </td></tr>
+                                    <tr><td><input type="submit" value="Submit"></td></tr>
 </form>
                             </tbody>
                         </table>
