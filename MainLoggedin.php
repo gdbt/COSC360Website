@@ -13,11 +13,11 @@
 
     <body>
         <header>
-            <a href="main.html"><img src="images/logo.png" alt="LOGO"></a>
+            <a href="main.php"><img src="images/logo.png" alt="LOGO"></a>
             <ul class="header-right">
-                <li><a href="MainLoggedin.html">#HOME</a></li>
-                <li><a href="LOGOUT">Log Out</a></li>
-                <li><a href="profile.html">Profile</a></li>
+                <li><a href="MainLoggedin.php">#HOME</a></li>
+                <li><a href="logout.php">Log Out</a></li>
+                <li><a href="profile.php">Profile</a></li>
             </ul>
         </header>
         <main>
@@ -25,19 +25,19 @@
                 <ul>
                     <li><a href ="about.html">#ABOUT</a></li>
                     <li><a href ="rules.html">#RULE</a></li>
-                    <li><a href ="ChannelMain.html?topic=cat">#CAT</a></li>
-                    <li><a href ="ChannelMain.html?topic=dog">#DOG</a></li>
-                    <li><a href ="ChannelMain.html?topic=fish">#FISH</a></li>
-                    <li><a href ="ChannelMain.html?topic=pokemon">#POKEMON</a></li>
-                    <li><a href ="ChannelMain.html?topic=tree">#TREE</a></li>
-                    <li><a href ="ChannelMain.html?topic=ubco">#UBC</a></li>
-                    <li><a href ="ChannelMain.html?topic=sfu">#SFU</a></li>
-                    <li><a href ="ChannelMain.html?topic=okcollege">#OKCollege</a></li>
-                    <li><a href ="ChannelMain.html?topic=laptop">#LAPTOP</a></li>
-                    <li><a href ="ChannelMain.html?topic=social">#SOCIAL</a></li>
-                    <li><a href ="ChannelMain.html?topic=phone">#PHONE</a></li>
-                    <li><a href ="ChannelMain.html?topic=weed">#WEED</a></li>
-                    <li><a href ="ChannelMain.html?topic=games">#GAMES</a></li>
+                    <li><a href ="ChannelMain.php?topic=cat">#CAT</a></li>
+                    <li><a href ="ChannelMain.php?topic=dog">#DOG</a></li>
+                    <li><a href ="ChannelMain.php?topic=fish">#FISH</a></li>
+                    <li><a href ="ChannelMain.php?topic=pokemon">#POKEMON</a></li>
+                    <li><a href ="ChannelMain.php?topic=tree">#TREE</a></li>
+                    <li><a href ="ChannelMain.php?topic=ubco">#UBC</a></li>
+                    <li><a href ="ChannelMain.php?topic=sfu">#SFU</a></li>
+                    <li><a href ="ChannelMain.php?topic=okcollege">#OKCollege</a></li>
+                    <li><a href ="ChannelMain.php?topic=laptop">#LAPTOP</a></li>
+                    <li><a href ="ChannelMain.php?topic=social">#SOCIAL</a></li>
+                    <li><a href ="ChannelMain.php?topic=phone">#PHONE</a></li>
+                    <li><a href ="ChannelMain.php?topic=weed">#WEED</a></li>
+                    <li><a href ="ChannelMain.php?topic=games">#GAMES</a></li>
                     </ul>
             </div>
 
@@ -60,53 +60,6 @@
                         <th></th>
                         <th>Like</th>
                     </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></td>
-                        <td><button type="button">Like</button>123</td>
                     </tr>
                 </table>
             </div>

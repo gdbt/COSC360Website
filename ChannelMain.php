@@ -16,7 +16,7 @@
 
     <body>
         <header>
-            <a href="main.html"><img src="images/logo.png" alt="LOGO"></a>
+            <a href="main.php"><img src="images/logo.png" alt="LOGO"></a>
             <ul class="header-right">
                 <li><a href="MainLoggedin.php">#HOME</a></li>
                 <li><a href="logout.php">Log Out</a></li>

@@ -48,7 +48,7 @@ $pdo = null;
 <script>
                 window.setTimeout(redir,1500);
                 function redir(){
-                    window.location.href ="../main.html";
+                    window.location.href ="../main.php";
                 }
             </script>
         </main>

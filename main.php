@@ -21,7 +21,7 @@
 					$username = $_SESSION['login_user'];
 					if ( $username != "" || $username != NULL ){
 						echo "<li> Hello $username<li>";
-						echo "<li><a href ='profile.html'>Profile</a></li>";
+						echo "<li><a href ='profile.php'>Profile</a></li>";
 						echo "<li><a href ='logout.php'>Log out</a></li>";
 					}
 					else {
@@ -39,19 +39,19 @@
 			<ul>
 				<li><a href ="about.html">#ABOUT</a></li>
 				<li><a href ="rules.html">#RULE</a></li>
-				<li><a href ="ChannelMain.html?topic=cat">#CAT</a></li>
-				<li><a href ="ChannelMain.html?topic=dog">#DOG</a></li>
-				<li><a href ="ChannelMain.html?topic=fish">#FISH</a></li>
-				<li><a href ="ChannelMain.html?topic=pokemon">#POKEMON</a></li>
-				<li><a href ="ChannelMain.html?topic=tree">#TREE</a></li>
-				<li><a href ="ChannelMain.html?topic=ubco">#UBC</a></li>
-				<li><a href ="ChannelMain.html?topic=sfu">#SFU</a></li>
-				<li><a href ="ChannelMain.html?topic=okcollege">#OKCollege</a></li>
-				<li><a href ="ChannelMain.html?topic=laptop">#LAPTOP</a></li>
-				<li><a href ="ChannelMain.html?topic=social">#SOCIAL</a></li>
-				<li><a href ="ChannelMain.html?topic=phone">#PHONE</a></li>
-				<li><a href ="ChannelMain.html?topic=weed">#WEED</a></li>
-				<li><a href ="ChannelMain.html?topic=games">#GAMES</a></li>
+				<li><a href ="ChannelMain.php?topic=cat">#CAT</a></li>
+				<li><a href ="ChannelMain.php?topic=dog">#DOG</a></li>
+				<li><a href ="ChannelMain.php?topic=fish">#FISH</a></li>
+				<li><a href ="ChannelMain.php?topic=pokemon">#POKEMON</a></li>
+				<li><a href ="ChannelMain.php?topic=tree">#TREE</a></li>
+				<li><a href ="ChannelMain.php?topic=ubco">#UBC</a></li>
+				<li><a href ="ChannelMain.php?topic=sfu">#SFU</a></li>
+				<li><a href ="ChannelMain.php?topic=okcollege">#OKCollege</a></li>
+				<li><a href ="ChannelMain.php?topic=laptop">#LAPTOP</a></li>
+				<li><a href ="ChannelMain.php?topic=social">#SOCIAL</a></li>
+				<li><a href ="ChannelMain.php?topic=phone">#PHONE</a></li>
+				<li><a href ="ChannelMain.php?topic=weed">#WEED</a></li>
+				<li><a href ="ChannelMain.php?topic=games">#GAMES</a></li>
 			</ul>
 		</div>
 
