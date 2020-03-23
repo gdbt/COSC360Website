@@ -8,15 +8,48 @@
         <script>
             var user ="Hayeon";
         </script>
-        <!-- <?php
-            require_once("php/connection.php");             
-            global $pdo;
-            try{
-
-            }catch(PDOException $e){
-            }
-            $pdo = null;
-        ?> -->
+        <?php                                      
+             include("php/session.php");
+             require_once("php/connection.php");
+             global $pdo;
+             try{ 
+                 $query = $_SERVER['QUERY_STRING'];
+                 $pid1 = explode("=", $query);
+                 $postId1 = (int)$pid1[1];
+                 
+                 $stmt3 = $pdo->query("SELECT UserId, postTitle, postDescription FROM Post WHERE postId = $postId1");
+                 $stmt3->execute();
+                 $result = $stmt3->fetch();
+                 $id = $result['UserId'];
+                 $title = $result['postTitle'];
+                 $inside = $result['postDescription'];
+                 $stmt4 =$pdo->query("SELECT Username, AccountDesc FROM Account WHERE id = $id");
+                 $stmt4->execute();
+                 $result2 = $stmt4->fetch();
+                 $postOwner = $result2['Username'];
+                 $aboutOwer = $result2['AccountDesc'];
+                 
+                 $stmt5 = $pdo->query("SELECT UserId, comment FROM Comment Where postId = $postId1");
+                 $stmt5->execute();
+                 $allUseronComment = array();
+                 $allComment = array();
+                 while ($row = $stmt5->fetch()) {
+                    $userId = $row["UserId"];
+                    $comment = $row["comment"];
+                    
+                    array_push($allComment,$comment);
+                    $stmt6 = $pdo->query("SELECT Username FROM Account Where id = $userId");
+                        $row2 = $stmt6->fetch();
+                        $username = $row2['Username'];
+                        array_push($allUseronComment,$username);
+                 }
+                                
+                 
+             }catch(PDOException $e){
+             }
+             $pdo = null;
+            
+        ?>
         <script>
             const qString = window.location.search;
             console.log(qString);
@@ -65,24 +98,22 @@
             <div id="center">
                 <div class ="profileinfo">
                     <figure>
-                        <img src ="images/profilepics/Hayeon.jpg" alt ="profile picture">
+                        <img src ="images/profilepics/<?php echo $postOwner; ?>.jpg" alt ="profile picture">
                         <figcaption>
-                            <script>
-                                document.write("<h2><u>@"+user+"</u></h2>");
-                            </script>
+                            <?php
+                                echo "<h2><u>@".$postOwner."</u></h2>";
+                            ?>
+                            
                         </figcaption>
                     </figure>
-                    <p>lorem ipsem mortelm void indictus sanctum apollo</p>
+                    <p><?php echo $aboutOwer; ?></p>
                 </div>
 
                 <div class ="postinfo">
                     <div class ="mainpost">
-                        <h2>Should Bananas be banned?</h2>
+                        <h2><?php echo $title; ?></h2>
                         <p class ="posttest">
-                            Bananas are an ungodly fruit and should ultimately
-                            be banned from this earth. If we all band together we can end this
-                            awful tyrrant and cripple of the fruit industry. Sign my petition
-                            to show your support
+                            <?php echo $inside; ?>
                         </p>
                         <button type="button">Like</button>
                     </div>
@@ -95,47 +126,30 @@
                             <tbody>                            
                                     
                                     <?php
-                                        
-                                        require_once("php/connection.php");
-                                        global $pdo;
-                                        try{
-                                            $query = $_SERVER['QUERY_STRING'];
-                                            echo $query;
-                                            echo "<br>";
-                                            $pid = explode("=", $query);
-                                            echo $pid[1];
-                                            $postId = (int)$pid[1];
-                                            echo "<br>";
-                                            echo $postId;
-                                            $stmt = $pdo->query("SELECT UserId, comment FROM Comment Where postid = $postId");
-                                            while ($row = $stmt->fetch()) {
-                                                $userId = $row["UserId"];
-                                                $comment = $row["comment"];
-                                                echo "<br>"."user id :".$row['UserId'];
-                                                $stmt2 = $pdo->query("SELECT Username FROM Account Where id = $userId");
-                                                $row2 = $stmt2->fetch();
-                                                $username = $row2['Username'];
-                                                echo "<br>"."user name :".$username;
-                                                echo "<tr><th>$username</th></tr>";
-                                                echo "<tr><td>$comment</td></tr>";
-                                            }
-                                        }catch(PDOException $e){
-                                        }
-                                        $pdo = null; 
+
+                                    $sizeOfArray = sizeof($allUseronComment);
+                                    for ( $i = 0 ; $i < $sizeOfArray ; $i++){
+                                        echo "<tr><th>$allUseronComment[$i]</th></tr>";
+                                        echo "<tr><td>$allComment[$i]</td></tr>";
+                                    }                                        
                                         
                                     ?>
                                     
                                     <form name = addcomment action="php/addcomment.php" method ="get">
-                                    <tr><th>Write Your Commont</th></tr>
-                                    <tr><td><textarea name = "nwcommomt"></textarea>
-                                        
-                                        <?php
-                                            echo "<input type='hidden' name='postId' value = ".$postId.">";
-                                        ?>                              
-                                        
-                                    </td></tr>
-                                    <tr><td><input type="submit" value="Submit"></td></tr>
-</form>
+
+                                    <?php
+                                        $username = $_SESSION['login_user'];
+                                        if ( $username != "" || $username != NULL ){
+                                            
+                                            echo "<tr><th>Write Your Commont</th></tr>";
+                                            echo '<tr><td><textarea name = "nwcommomt"></textarea>';
+                                            echo "<input type='hidden' name='postId' value = ".$postId1.">";
+                                            echo '<tr><td><input type="submit" value="Submit"></td></tr>';
+                                            
+                                        }
+                                    ?>
+                                    </form>
+                                    
                             </tbody>
                         </table>
                         
