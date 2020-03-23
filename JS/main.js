@@ -1,4 +1,4 @@
 
 function myFunction() {
-    location.replace("./SerchedPage.html")
+    location.replace("./SerchedPage.php")
   }

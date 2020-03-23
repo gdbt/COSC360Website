@@ -1,9 +1,7 @@
 <?php
 	include("php/session.php");
-	$username = $_SESSION['login_user'];
-	echo $username;
+	
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +17,19 @@
 		</figure>
 		<div class = "header-right">
 			<ul>
-				<li><a href ="profile.html">Profile</a></li>
-				<li><a href ="login.html">Login</a></li>
-				<li><a href ="SignUp.html">Sign Up</a></li>
-				<li><a href ="#">Log out</a></li>
+				<?php 
+					$username = $_SESSION['login_user'];
+					if ( $username != "" || $username != NULL ){
+						echo "<li> Hello $username<li>";
+						echo "<li><a href ='profile.html'>Profile</a></li>";
+						echo "<li><a href ='logout.php'>Log out</a></li>";
+					}
+					else {
+						echo "<li><a href ='login.html'>Login</a></li>";
+						echo "<li><a href ='SignUp.html'>Sign Up</a></li>";
+					}
+					
+				?>
 			</ul>
 		</div>
 	</header>
@@ -69,11 +76,10 @@
 				</figure>
 			</div>
 			<div class ="searchbar">
-				<form id ="Search" method ="GET"> 
-					<input type ="text" id ="searcher" placeholder ="Search something">
-					
+				<form id ="Search" action = "SerchedPage.php"  method ="GET"> 
+					<input type ="text" id ="searcher" name = "searchr" placeholder ="Search something">
+					<input type="submit" value="Submit" onclick="myFunction()">
 				</form>	
-					<button id="subbutt" onclick="myFunction()">Search</button>
 				
 			</div>
 		</div>

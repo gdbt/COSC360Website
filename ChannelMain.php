@@ -76,14 +76,15 @@
         	        $stmt->execute();
         	        $results = $stmt->fetch();
         	        $channelid = $results['channelId'];
-        	        $lsql = "SELECT postLikes, postTitle FROM Post WHERE channelId = :channels";
+        	        $lsql = "SELECT postLikes, postTitle, postId FROM Post WHERE channelId = :channels";
         	        $lstmt = $pdo->prepare($lsql);
         	        $lstmt->bindParam(':channels',$channelid);
         	        $lstmt->execute();
         	        while($row = $lstmt->fetch()){
+                          $pi = $row['postId'];
         	              $pl = $row['postLikes'];
         	              $pt = $row['postTitle'];
-        	              echo "<tr><td><a href = 'post.html?title=$pt'>$pt</a></td><td></td><td>$pl</td></tr>";
+        	              echo "<tr><td><a href = 'post.php?postId=$pi'>$pt</a></td><td></td><td>$pl</td></tr>";
         	        }
         	}catch(PDOException $e){
         	}
