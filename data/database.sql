@@ -83,3 +83,23 @@ CREATE TABLE DailyPicture(
 	dailyPicId int NOT NULL AUTO_INCREMENT,
 	PRIMARY KEY (dailyPicId)
 );
+
+INSERT INTO Category (categoryName) VALUES ('Animals');
+INSERT INTO Category (categoryName) VALUES ('Games');
+INSERT INTO Category (categoryName) VALUES ('School');
+INSERT INTO Category (categoryName) VALUES ('Social');
+
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('cat',0,0,'2020-01-01 00:00:00',1,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('dog',0,0,'2020-01-01 00:00:00',1,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('fish',0,0,'2020-01-01 00:00:00',1,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('pokemon',0,0,'2020-01-01 00:00:00',2,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('tree',0,0,'2020-01-01 00:00:00',4,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('ubco',0,0,'2020-01-01 00:00:00',3,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('sfu',0,0,'2020-01-01 00:00:00',3,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('okcollege',0,0,'2020-01-01 00:00:00',3,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('laptop',0,0,'2020-01-01 00:00:00',2,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('social',0,0,'2020-01-01 00:00:00',4,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('phone',0,0,'2020-01-01 00:00:00',4,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('weed',0,0,'2020-01-01 00:00:00',4,1);
+INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('games',0,0,'2020-01-01 00:00:00',2,1);
+
