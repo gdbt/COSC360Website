@@ -102,4 +102,3 @@ INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId,
 INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('phone',0,0,'2020-01-01 00:00:00',4,1);
 INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('weed',0,0,'2020-01-01 00:00:00',4,1);
 INSERT INTO Channel (channelName, postCount, likeCount, channelDate, categoryId, channelAdmin) VALUES ('games',0,0,'2020-01-01 00:00:00',2,1);
-
