@@ -65,17 +65,19 @@
                         <th>Like</th>
                     </tr>
                 <?php
+		include("php/session.php");
         	require_once("php/connection.php");
         	global $pdo;
         	try{
+			$username = $_SESSION['login_user'];
         	        $topic = $_GET['topic'];
-        	        echo $topic;
-        	        $sql = "SELECT channelId FROM Channel WHERE channelName = :channel";
+        	        $sql = "SELECT channelId, channelAdmin FROM Channel WHERE channelName = :channel";
         	        $stmt = $pdo->prepare($sql);
         	        $stmt->bindParam(':channel',$topic);
         	        $stmt->execute();
         	        $results = $stmt->fetch();
         	        $channelid = $results['channelId'];
+			$channeladmin = $results['channelAdmin'];
         	        $lsql = "SELECT postLikes, postTitle, postId FROM Post WHERE channelId = :channels";
         	        $lstmt = $pdo->prepare($lsql);
         	        $lstmt->bindParam(':channels',$channelid);
@@ -86,6 +88,18 @@
         	              $pt = $row['postTitle'];
         	              echo "<tr><td><a href = 'post.php?postId=$pi'>$pt</a></td><td></td><td>$pl</td></tr>";
         	        }
+			$asql = "SELECT Id FROM Account WHERE Username = :username";
+			$stt = $pdo->prepare($asql);
+                        $stt->bindParam(':username',$username);
+                        $stt->execute();
+                        $res = $stt->fetch();
+                        $isadmin = $res['Id'];
+			if($isadmin == $channeladmin){
+				echo "<form action ='channelpostadmin.php' method='post'>";
+					echo "<input type='hidden' name ='cid' value = $channelid>";
+					echo "<input type ='Submit' value ='Admin'>";
+				echo "</form>";
+			}
         	}catch(PDOException $e){
         	}
         	$pdo = null;

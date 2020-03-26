@@ -44,7 +44,7 @@
             <div id="table">
                 <figure>
                     <img id="topBar" src="images/categoryimg/pokemon.jpg" alt="HIGHLIGHT-IMG">
-                    <figcaption>#HIGH LIGHT</figcaption>
+                    <figcaption>#Your Posts</figcaption>
                 </figure>
                 <table>
                     <tr>
@@ -60,6 +60,31 @@
                         <th></th>
                         <th>Like</th>
                     </tr>
+			<?php
+			require_once("php/connection.php");
+			global $pdo;
+			try{
+                        	$user = $_SESSION['login_user'];
+                        	$sql = "SELECT Id FROM Account WHERE Username = :username";
+                        	$stmt = $pdo->prepare($sql);
+                        	$stmt->bindParam(':username',$user);
+                        	$stmt->execute();
+                        	$results = $stmt->fetch();
+                        	$userid = $results['Id'];
+                        	$lsql = "SELECT postLikes, postTitle, postId FROM Post WHERE UserId = :userid";
+                        	$lstmt = $pdo->prepare($lsql);
+                        	$lstmt->bindParam(':userid',$userid);
+                        	$lstmt->execute();
+                        	while($row = $lstmt->fetch()){
+                        	  $pi = $row['postId'];
+                        	      $pl = $row['postLikes'];
+                        	      $pt = $row['postTitle'];
+                        	      echo "<tr><td><a href = 'post.php?postId=$pi'>$pt</a></td><td></td><td>$pl</td></tr>";
+                        	}
+                	}catch(PDOException $e){
+				$e->getMessage();
+			}
+			?>
                     </tr>
                 </table>
             </div>
