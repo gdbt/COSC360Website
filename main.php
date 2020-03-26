@@ -1,6 +1,5 @@
 <?php
 	include("php/session.php");
-	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +16,8 @@
 		</figure>
 		<div class = "header-right">
 			<ul>
-				<?php 
+				<?php
+					require_once("php/connection.php");
 					$username = $_SESSION['login_user'];
 					if ( $username != "" || $username != NULL ){
 						echo "<li> Hello $username<li>";
@@ -28,7 +28,20 @@
 						echo "<li><a href ='login.html'>Login</a></li>";
 						echo "<li><a href ='SignUp.html'>Sign Up</a></li>";
 					}
-					
+					global $pdo;
+					try{
+						$sql = "SELECT ServerAdmin FROM Account WHERE Username = :username";
+						$stmt = $pdo->prepare($sql);
+						$stmt->bindParam(':username',$username);
+						$stmt->execute();
+						$results = $stmt->fetch();
+						$isadmin = $results['ServerAdmin'];
+						if($isadmin == 1){
+							echo "<li><a href ='mainaccountadmin.php'>Admin</a></li>";
+						}
+					}catch(PDOException $e){
+						echo $e->getMessage();
+					}
 				?>
 			</ul>
 		</div>
@@ -79,12 +92,9 @@
 				<form id ="Search" action = "SerchedPage.php"  method ="GET"> 
 					<input type ="text" id ="searcher" name = "searchr" placeholder ="Search something">
 					<input type="submit" value="Submit" onclick="myFunction()">
-				</form>	
-				
+				</form>
 			</div>
 		</div>
-
-		
 	</main>
 	<footer>
 		<div>
