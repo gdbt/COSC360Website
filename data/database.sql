@@ -84,6 +84,16 @@ CREATE TABLE DailyPicture(
 	PRIMARY KEY (dailyPicId)
 );
 
+CREATE TABLE Contact ( 
+	contactId int NOT NULL AUTO_INCREMENT, 
+	contactTitle VARCHAR(20), 
+	contactDesc VARCHAR(300), 
+	contactDate DATE, 
+	UserId int, 
+	PRIMARY KEY (contactId), 
+	FOREIGN KEY (UserId) REFERENCES Account(Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 INSERT INTO Category (categoryName) VALUES ('Animals');
 INSERT INTO Category (categoryName) VALUES ('Games');
 INSERT INTO Category (categoryName) VALUES ('School');
