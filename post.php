@@ -67,10 +67,19 @@
             </div>
             <div class="header-right">
                 <ul>
-                    <li><a href="MainLoggedin.php">Home</a></li>
-                    <li><a href="main.php">Front Page</a></li>
-                    <li><a href="logout.php">Log Out</a></li>
-                    <li><a href="profile.php">Profile</a></li>
+		<?php
+			include("php/session.php");
+			$userr = $_SESSION['login_user'];
+			if ( $userr != "" || $userr != NULL ){
+                                                echo "<li> Hello $userr <li>";
+                                                echo "<li><a href ='profile.php'>Profile</a></li>";
+                                                echo "<li><a href ='logout.php'>Log out</a></li>";
+                                        }
+                                        else {
+                                                echo "<li><a href ='login.html'>Login</a></li>";
+                                                echo "<li><a href ='SignUp.html'>Sign Up</a></li>";
+                                        }
+		?>
                 </ul>
             </div>
         </header>
@@ -141,12 +150,15 @@
                                         $username = $_SESSION['login_user'];
                                         if ( $username != "" || $username != NULL ){
                                             
-                                            echo "<tr><th>Write Your Commont</th></tr>";
+                                            echo "<tr><th>Write Your Comment</th></tr>";
                                             echo '<tr><td><textarea name = "nwcommomt"></textarea>';
                                             echo "<input type='hidden' name='postId' value = ".$postId1.">";
                                             echo '<tr><td><input type="submit" value="Submit"></td></tr>';
                                             
                                         }
+					else{
+						echo "<tr><th>You must be logged in to comment.</th></tr>";
+					}
                                     ?>
                                     </form>
                                     
@@ -158,7 +170,7 @@
                 </div>
         </main>
         <footer>
-            <a href = "#">Contact us</a><br>
+            <a href = "contact.php">Contact us</a><br>
             <a href = "RequestPage.html">Request a New Channel</a>
         </footer>
 

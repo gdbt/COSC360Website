@@ -98,7 +98,7 @@
 	</main>
 	<footer>
 		<div>
-			<a href = "#">Contact Us!</a>
+			<a href = "contact.php">Contact Us!</a>
 		</div>
 	</footer>
 </body>

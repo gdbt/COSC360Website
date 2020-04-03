@@ -109,7 +109,7 @@
             </div>
         </main>
         <footer>
-            <a href="#">Contact Us</a>
+            <a href="contact.php">Contact Us</a>
         </footer>
     </body>
 </html>
