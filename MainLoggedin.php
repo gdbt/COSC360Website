@@ -1,6 +1,11 @@
 
 <?php
 	include('php/session.php');
+	$log = isset($_SESSION['login_user']);
+	if($log == false){
+		header("location:login.html");
+                die();
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +96,7 @@
         </main>
 
         <footer>
-            <a href="#">Contact Us</a>
+            <a href="contact.php">Contact Us</a>
         </footer>
     </body>
 </html>

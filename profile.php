@@ -1,5 +1,10 @@
 <?php 
 	include("php/session.php"); 
+	if(!isset($_SESSION['login_user'])){
+                header("location:login.html");
+                die();
+        }
+
 	require_once('php/connection.php');
                 try{
                         global $pdo;
@@ -116,7 +121,7 @@
             </div>
         </main>
         <footer>
-            <a href = "#">Contact us</a><br>
+            <a href = "contact.php">Contact us</a><br>
             <a href = "RequestPage.html">Request a New Channel</a>
         </footer>
     </body>

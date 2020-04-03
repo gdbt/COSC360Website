@@ -41,7 +41,6 @@ try{
         $stmt->execute();
         echo "new user added";
 }catch(PDOException $e){
-        
 }
 $pdo = null;
 ?>

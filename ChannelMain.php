@@ -18,10 +18,20 @@
         <header>
             <a href="main.php"><img src="images/logo.png" alt="LOGO"></a>
             <ul class="header-right">
-                <li><a href="MainLoggedin.php">#HOME</a></li>
-                <li><a href="logout.php">Log Out</a></li>
-                <li><a href="profile.php">Profile</a></li>
-            </ul>
+		<?php
+                	include("php/session.php");
+                        $username = $_SESSION['login_user'];
+                                        if ( $username != "" || $username != NULL ){
+                                                echo "<li> Hello $username<li>";
+                                                echo "<li><a href ='profile.php'>Profile</a></li>";
+                                                echo "<li><a href ='logout.php'>Log out</a></li>";
+                                        }
+                                        else {
+                                                echo "<li><a href ='login.html'>Login</a></li>";
+                                                echo "<li><a href ='SignUp.html'>Sign Up</a></li>";
+                                        }
+            	?>
+	    </ul>
         </header>
         <main>
             <div id="quickLink"> 
@@ -65,7 +75,6 @@
                         <th>Like</th>
                     </tr>
                 <?php
-		include("php/session.php");
         	require_once("php/connection.php");
         	global $pdo;
         	try{
@@ -113,7 +122,7 @@
         </main>
 
         <footer>
-            <a href="#">Contact Us</a>
+            <a href="contact.php">Contact Us</a>
         </footer>
     </body>
 </html>

@@ -1,5 +1,9 @@
 <?php
 	include("php/session.php");
+	if(!isset($_SESSION['login_user'])){
+                header("location:login.html");
+                die();
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,10 +56,10 @@
                 </div>
                 <div class ="maininfo">
 			<form name ="postmake" method ="post" action ="php/newpost.php" onsubmit="return validateForm()">
-                        	<label for="postt">Post Title:</label>
+                        	<label for="postt">Post Title:</label><br>
 				<input type ="text" id="postt" name="posttitle" placeholder ="Post Title"><br>
-				<label for="postd">Post Description:</label>
-				<input type ="text" id="postd" name="postdesc" placeholder ="Post Description"><br>
+				<label for="postd">Post Description:</label><br>
+				<textarea id="postd" name="postdesc" rows="6" cols="50" placeholder ="Post Description"></textarea><br>
 				<?php
 				$id = $_POST['cid'];
 				echo"<input type ='hidden' name ='channelid' value='$id'>";
@@ -66,7 +70,7 @@
             </div>
         </main>
         <footer>
- 		<a href = "#">Contact us</a><br>
+ 		<a href = "contact.php">Contact us</a><br>
             <a href = "RequestPage.html">Request a New Channel</a>
         </footer>
     </body>
