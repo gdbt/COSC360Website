@@ -62,12 +62,27 @@
                     <tr>
                         <th>Sort</th>
                         <th>
-                            <select>
-                                <option value="">Hot</option>
-                                <option value="">New</option>
-                                <option value="">Most Like</option>
-                                <option value="">Most Comments</option>
+                            <select id ="sorting" onchange="sort()">
+                                <option  value="hot">Hot</option>
+                                <option  value="new">New</option>
+                                <option  value="like">Most Like</option>
+                                <option  value="mostComments">Most Comments</option>
                             </select>
+                            <script>
+                                function sort() {
+                                    console.log("here");
+                                    var x = document.getElementById("sorting").value;
+                                    var url = window.location.href;
+                                    var a = url.split("?");
+                                    var a = a[1];
+                                    var b = a.split("&");
+                                    var b = b[0];
+                                    var item = b.split("=");
+                                    var item = item[1];
+                                    var y = location.search ;
+                                    location.search = "searchr=" + item + "&sort=" + x;
+                                }
+                            </script>
                         </th>
                         <th></th>
                         <th>Like</th>
@@ -77,18 +92,43 @@
                         require_once("php/connection.php");
                         global $pdo;
 
+                        // echo $sort;
+
                         $item = $_GET["searchr"];
+                        $sort = $_GET["sort"];
+                        echo "Sort by: ".$sort;
                         if ($item == "" || $item == NULL)
                             $item = "Empty";
+                        switch($sort){
+                            case 'hot':
+                                $obc = 'postCount DESC';
+                                $obp = 'postLikes DESC';
+                                break;
+                            case 'new':
+                                $obc = "channelDate DESC";
+                                $obp = "postDate DESC";
+                                break;
+                            case 'like':
+                                $obc = "likeCount DESC";
+                                $obp = 'postLikes DESC';
+                                break;
+                            case 'mostComments':
+                                $obc = 'postCount DESC';
+                                $obp = 'postId ASC';
+                                break;
+                            default:
+                                $obc = 'channelId DESC';
+                                $obp = 'postId ASC';
+                        }    
                         try{
-                            $stmt = $pdo->query("SELECT * FROM Channel Where channelName Like '%$item%'");
+                            $stmt = $pdo->query("SELECT * FROM Channel Where channelName Like '%$item%' ORDER BY $obc");
                             while ($row = $stmt->fetch()) {
                                echo "<tr>";
                                    echo "<td colspan='3'><a href='post.html'>#".$row['channelName']."</a></td>";
                                    echo "<td><button type='button'>Like</button>".$row['likeCount']."</td>";
                                echo "</tr>";
                             }
-                            $stmt = $pdo->query("SELECT * FROM Post Where postTitle Like '%$item%' OR postDescription Like '%$item%' ");
+                            $stmt = $pdo->query("SELECT * FROM Post Where postTitle Like '%$item%' OR postDescription Like '%$item%' ORDER BY $obp ");
                             while ($row = $stmt->fetch()) {
                                echo "<tr>";
                                    echo "<td colspan='3'><a href='post.html'>".$row['postTitle']."</a></td>";
