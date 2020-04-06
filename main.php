@@ -91,6 +91,7 @@
 			<div class ="searchbar">
 				<form id ="Search" action = "SerchedPage.php"  method ="GET"> 
 					<input type ="text" id ="searcher" name = "searchr" placeholder ="Search something">
+					<input type ="hidden" id="sorting" name = "sort" value = "hot">
 					<input type="submit" value="Submit" onclick="myFunction()">
 				</form>
 			</div>
