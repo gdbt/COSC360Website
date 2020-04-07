@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>about Us</title>
+		<title>Admin</title>
         	<meta charset ="UTF-8">
         	<link rel ="stylesheet" href="css/info.css">
 		<link rel ="stylesheet" href="css/admin.css">
@@ -27,6 +27,9 @@
 				</form>
 				<form name='adminoption' action ='mainpostadmin.php' method='post'>
                                         <button type="submit" id="2">Posts</button>
+                                </form>
+				<form name='adminoption' action ='maincommentadmin.php' method='post'>
+                                        <button type="submit" id="4">Comments</button>
                                 </form>
 				<form name='adminoption' action ='mainchanneladmin.php' method='post'>
                                         <button type="submit" id="3">Channels</button>

@@ -19,13 +19,20 @@
 			$likes = $results['Likes'];
 			$gender = $results['Gender'];
 			$id = $results['Id'];
-			echo $id;
 
 			$achsql = "SELECT AchievementName FROM Achievements,Account WHERE Achievements.accountId = Account.Id and Account.Id = :id;";
 			$achstmt = $pdo->prepare($achsql);
 			$achstmt->bindParam(':id',$id);
 			$achstmt->execute();
-
+			
+			$postsql = "Select postTitle from Post WHERE UserId = :id";
+			$poststmt = $pdo->prepare($postsql);
+			$poststmt->bindParam(':id',$id);
+			$poststmt->execute();
+			$postcount = 0;
+			while($postresult = $poststmt->fetch()){
+				$postcount = $postcount + 1;
+			}
 		}catch(PDOException $e){
                         echo $e->getMessage();
                 }
@@ -115,7 +122,7 @@
                 <div class ="stats">
                    <?php
 				echo "<h3>Likes: $likes</h3>";
-				echo "<h3>Posts: 0</h3>";
+				echo "<h3>Posts: $postcount</h3>";
 			?>
                 </div>
             </div>

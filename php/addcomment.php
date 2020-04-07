@@ -29,7 +29,6 @@
                 $stmt->execute();
                 $result = $stmt -> fetch();
                 $userId = $result[0];
-                echo $username;
                 $sql = "INSERT INTO Comment (comment, commentDate, UserId, postId) values (:comment, :commentdate, :userid, :postid);";
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':comment',$nwcommont);
@@ -37,7 +36,6 @@
                 $stmt->bindParam(':userid',$userId);
                 $stmt->bindParam(':postid', $postId);
                 $stmt->execute();
-                echo "new commont added";
                 }catch(PDOException $e){
                         echo $e->getMessage();
         }

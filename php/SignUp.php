@@ -27,7 +27,6 @@ try{
 	$securityq = $_GET['security_question'];
 	$securitya = $_GET['security_answer'];
 	$likes = 0;
-	echo $username;
         $sql = "INSERT INTO Account (Username, Password, Gender, AccountDesc,Interests, SecurityQ, SecurityA, Likes, ServerAdmin) values (:username, :password, :gender, :accountdesc,:interests,:securityq,:securitya,:likes,false);";
         $stmt = $pdo->prepare($sql);
 	$stmt->bindParam(':username',$username);
@@ -39,7 +38,6 @@ try{
 	$stmt->bindParam(':securitya',$securitya);
 	$stmt->bindParam(':likes',$likes);
         $stmt->execute();
-        echo "new user added";
 }catch(PDOException $e){
 }
 $pdo = null;

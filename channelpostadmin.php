@@ -52,9 +52,6 @@
                                                 $cres = $cstt->fetch();
                                                 $cadmin = $cres['channelAdmin'];
 						if($cadmin == $isadmin){
-							echo $cadmin;
-							echo $isadmin;
-							echo $cid;
 							$sql1 = "SELECT * FROM Post WHERE channelId = :channelid";
 							$stmt = $pdo->prepare($sql1);
 							$stmt->bindParam(':channelid',$cid);

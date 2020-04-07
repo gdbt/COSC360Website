@@ -20,9 +20,10 @@
 					require_once("php/connection.php");
 					$username = $_SESSION['login_user'];
 					if ( $username != "" || $username != NULL ){
-						echo "<li> Hello $username<li>";
+						echo "<li> Hello $username <li>";
 						echo "<li><a href ='profile.php'>Profile</a></li>";
 						echo "<li><a href ='logout.php'>Log out</a></li>";
+						echo "<li><a href='MainLoggedin.php'>#HOME</a></li>";
 					}
 					else {
 						echo "<li><a href ='login.html'>Login</a></li>";
@@ -91,7 +92,6 @@
 			<div class ="searchbar">
 				<form id ="Search" action = "SerchedPage.php"  method ="GET"> 
 					<input type ="text" id ="searcher" name = "searchr" placeholder ="Search something">
-					<input type ="hidden" id="sorting" name = "sort" value = "hot">
 					<input type="submit" value="Submit" onclick="myFunction()">
 				</form>
 			</div>

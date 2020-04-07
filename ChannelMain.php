@@ -25,8 +25,11 @@
                                                 echo "<li> Hello $username<li>";
                                                 echo "<li><a href ='profile.php'>Profile</a></li>";
                                                 echo "<li><a href ='logout.php'>Log out</a></li>";
-                                        }
+						echo "<li><a href='MainLoggedin.php'>#HOME</a></li>";
+                                        	echo "<li><a href ='main.php'>Front Page</a></li>";
+					}
                                         else {
+						echo "<li><a href ='main.php'>Front Page</a></li>";
                                                 echo "<li><a href ='login.html'>Login</a></li>";
                                                 echo "<li><a href ='SignUp.html'>Sign Up</a></li>";
                                         }
@@ -103,6 +106,39 @@
                         $stt->execute();
                         $res = $stt->fetch();
                         $isadmin = $res['Id'];
+
+                        $postsql = "SELECT postTitle FROM Post WHERE UserId = :id";
+                        $poststmt = $pdo->prepare($postsql);
+                        $poststmt->bindParam(':id',$isadmin);
+                        $poststmt->execute();
+			$postres = $poststmt->fetch();
+			$grab = $postres['postTitle'];
+			if($grab == "" || $grab == NULL){
+			
+			}else{
+				$checksql = "select AchievementName from Achievements, Account WHERE Account.Id = Achievements.accountId and Account.Id = :id";
+				$checkstmt = $pdo->prepare($checksql);
+				$checkstmt->bindParam(':id',$isadmin);
+				$checkstmt->execute();
+				$hasach = 0;
+				while($checkres = $checkstmt->fetch()){
+					$haspost = $checkres['AchievementName'];
+					$firstpost = "firstpost.png";
+					$same = strcmp($haspost, $firstpost);
+					if($same == 0){
+						$hasach = 1;
+					}
+					else{
+						$hasach = 0;
+					}
+				}
+				if($hasach == 0){
+					$giveach = "INSERT INTO Achievements (AchievementName, accountId) VALUES ('firstpost.png',:isadmin)";
+					$givestmt = $pdo->prepare($giveach);
+					$givestmt->bindParam(':isadmin',$isadmin);
+					$givestmt->execute();
+				}
+			}
 			if($isadmin == $channeladmin){
 				echo "<form action ='channelpostadmin.php' method='post'>";
 					echo "<input type='hidden' name ='cid' value = $channelid>";

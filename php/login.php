@@ -29,11 +29,7 @@ try{
         $stmt->execute();
 	$result = $stmt->fetch();
 	$grabpass = $result['password'];
-	echo "hello $username With password $password Your actual password is ";
-	if($password == $grabpass){
-		echo "login Successful ";
-		echo $grabpass;
-		echo " yo";
+	if($password == $grabpass){;
 		$_SESSION['login_user'] = $username;
 		echo "<script>window.location.replace('../MainLoggedin.php')</script>";
 	}
