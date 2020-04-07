@@ -2,6 +2,9 @@
     padding:0.5em;
     background-color:rgb(238, 206, 206);
     border-bottom:dashed 2px black;
+    width:250px;
+    height:80%;
+    float:left
 }
 .profileinfo img{
     height:100px;
@@ -36,12 +39,6 @@
 }
 #indvcomments tbody th{
     border-bottom:1px dotted black;
-}
-.profileinfo{
-    width:250px;
-    height:21.5em;
-    float:left
-    
 }
 .postinfo{
     margin-left:270px;

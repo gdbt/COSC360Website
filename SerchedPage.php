@@ -124,14 +124,16 @@
                             $stmt = $pdo->query("SELECT * FROM Channel Where channelName Like '%$item%' ORDER BY $obc");
                             while ($row = $stmt->fetch()) {
                                echo "<tr>";
-                                   echo "<td colspan='3'><a href='post.html'>#".$row['channelName']."</a></td>";
+                                    $nnnn = $row['channelName'];
+                                   echo "<td colspan='3'><a href='ChannelMain.php?topic=$nnnn'>#".$row['channelName']."</a></td>";
                                    echo "<td><button type='button'>Like</button>".$row['likeCount']."</td>";
                                echo "</tr>";
                             }
                             $stmt = $pdo->query("SELECT * FROM Post Where postTitle Like '%$item%' OR postDescription Like '%$item%' ORDER BY $obp ");
                             while ($row = $stmt->fetch()) {
                                echo "<tr>";
-                                   echo "<td colspan='3'><a href='post.html'>".$row['postTitle']."</a></td>";
+				   $iddd = $row['postId'];
+                                   echo "<td colspan='3'><a href='post.php?postId=$iddd'>".$row['postTitle']."</a></td>";
                                    echo "<td><button type='button'>Like</button>".$row['postLikes']."</td>";
                                echo "</tr>";
                             }

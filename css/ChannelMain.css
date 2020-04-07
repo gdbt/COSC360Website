@@ -48,7 +48,7 @@ figcaption{
 
 footer{
     clear: left;
-    height: 150px;
+    height: 100px;
     margin-top: 2em;
 }
 
@@ -86,7 +86,7 @@ header img{
 }
 
 header{
-    margin-top: -5em;
+    margin-top: 1em;
 }
 
 table{

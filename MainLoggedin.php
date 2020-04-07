@@ -23,6 +23,7 @@
                 <li><a href="MainLoggedin.php">#HOME</a></li>
                 <li><a href="logout.php">Log Out</a></li>
                 <li><a href="profile.php">Profile</a></li>
+		<li><a href ="main.php">Front Page</a></li>
             </ul>
         </header>
         <main>
@@ -86,6 +87,30 @@
                         	      $pt = $row['postTitle'];
                         	      echo "<tr><td><a href = 'post.php?postId=$pi'>$pt</a></td><td></td><td>$pl</td></tr>";
                         	}
+				$checksql = "select AchievementName from Achievements, Account WHERE Account.Id = Achievements.accountId and Account.Id = :id";
+                        $checkstmt = $pdo->prepare($checksql);
+                        $checkstmt->bindParam(':id',$userid);
+                        $checkstmt->execute();
+                        $hasach = 0;
+                        while($checkres = $checkstmt->fetch()){
+                                 $haspost = $checkres['AchievementName'];
+                                 $firstpost = "accountmade.png";
+                                 $same = strcmp($haspost, $firstpost);
+                                 if($same == 0){
+                                        $hasach = 1;
+                                 }
+                                 else{
+                                        $hasach = 0;
+                                 }
+                        }
+                        if($hasach == 0){
+                                $giveach = "INSERT INTO Achievements (AchievementName, accountId) VALUES ('accountmade.png',:isadmin)";
+                                $givestmt = $pdo->prepare($giveach);
+                                $givestmt->bindParam(':isadmin',$userid);
+                                $givestmt->execute();
+                        }else{
+
+                        }
                 	}catch(PDOException $e){
 				$e->getMessage();
 			}
