@@ -14,6 +14,9 @@
 		<figure class ="heads">
 			<img src ="images/logo.png" alt = "Logo">
 		</figure>
+		<div class = "top">
+			<h1 align = "center" >Welcome to One For All and All Forum</h1>
+		</div>
 		<div class = "header-right">
 			<ul>
 				<?php
